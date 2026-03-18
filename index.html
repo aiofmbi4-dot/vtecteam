@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="ru" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VTEC TEAM | Чип-тюнинг и Русификация в Красногорске</title>
+    <meta name="description" content="Профессиональный чип-тюнинг, удаление катализаторов и русификация Kia, Hyundai, Genesis, Tank, Haval в Красногорске. Раскройте потенциал вашего авто.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        dark: '#0D0D0D',
+                        neon: '#00FFFF', // Neon Cyan
+                        'neon-dim': 'rgba(0, 255, 255, 0.1)',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="styles.css">
+    
+    <style>
+        body {
+            background-color: #0D0D0D;
+            color: white;
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .neon-text {
+            text-shadow: 0 0 10px rgba(0, 242, 255, 0.5), 0 0 20px rgba(0, 242, 255, 0.3);
+        }
+        
+        .neon-border {
+            box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+            border: 1px solid rgba(0, 242, 255, 0.3);
+        }
+
+        .neon-border-hover:hover {
+            box-shadow: 0 0 25px rgba(0, 242, 255, 0.4);
+            border-color: rgba(0, 242, 255, 0.8);
+            transition: all 0.3s ease;
+        }
+
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(5px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.active {
+            display: flex;
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .accordion-item.active .accordion-content {
+            max-height: 200px;
+        }
+
+        .accordion-item.active i {
+            transform: rotate(180deg);
+        }
+
+        @keyframes pulse-neon {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        .animate-pulse-neon {
+            animation: pulse-neon 2s infinite;
+        }
+        
+        .hero-title {
+            line-height: 1.3;
+        }
+    </style>
+</head>
+<body class="bg-dark text-white">
+
+    <!-- Header -->
+    <header class="fixed top-0 left-0 w-full z-50 glass border-b border-white/5 transition-all duration-300">
+        <div class="container mx-auto px-4 py-4 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <span class="text-2xl font-black tracking-tighter text-neon">VTEC TEAM</span>
+            </div>
+            
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium uppercase tracking-widest text-gray-400">
+                <a href="#" class="hover:text-neon transition-colors" aria-label="На главную" title="На главную">
+                    <i data-lucide="home" class="w-5 h-5"></i>
+                </a>
+                <a href="#services" class="hover:text-neon transition-colors">Услуги</a>
+                <a href="#portfolio" class="hover:text-neon transition-colors">НАШИ РАБОТЫ</a>
+                <a href="#contacts" class="hover:text-neon transition-colors">Контакты</a>
+            </nav>
+            
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2 text-sm font-medium uppercase tracking-widest text-gray-400">
+                    <i data-lucide="phone" class="w-4 h-4 text-neon"></i>
+                    <a href="tel:+79991234567" class="hover:text-neon transition-colors">+7 (999) 123-45-67</a>
+                </div>
+                <button class="md:hidden text-white" id="mobile-menu-btn" aria-label="Открыть меню">
+                    <i data-lucide="menu" class="w-6 h-6"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="fixed inset-0 z-[60] bg-dark/95 hidden flex-col items-center justify-center gap-8 text-2xl font-bold uppercase tracking-widest">
+        <button class="absolute top-6 right-6" id="close-menu-btn">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <a href="#" class="hover:text-neon menu-link">Домой</a>
+        <a href="#services" class="hover:text-neon menu-link">Услуги</a>
+        <a href="#portfolio" class="hover:text-neon menu-link">НАШИ РАБОТЫ</a>
+        <a href="#contacts" class="hover:text-neon menu-link">Контакты</a>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center pt-20 pb-20 overflow-hidden">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0">
+            <img src="./Фон/Вместо_надписи_overhaul_202603182044.png" alt="Vtec Team Tuning Studio" class="w-full h-full object-cover opacity-40">
+            <div class="absolute inset-0 bg-gradient-to-b from-dark/80 via-dark/40 to-dark"></div>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-5xl mx-auto text-center flex flex-col items-center pt-[140px]">
+                <h1 class="hero-title mb-4 drop-shadow-2xl flex flex-col items-center w-full">
+                    <span class="whitespace-nowrap font-black text-white text-[clamp(1.2rem,6vw,3.2rem)] uppercase tracking-tight opacity-95 shrink-0">Твой автомобиль. Твои правила.</span>
+                    <span class="whitespace-nowrap font-black text-[clamp(1.2rem,6vw,3.2rem)] text-neon neon-text uppercase shrink-0">Раскрой скрытый потенциал.</span>
+                </h1>
+                
+                <ul class="space-y-3 mt-6 mb-12 text-[0.95rem] md:text-[1.05rem] text-gray-200 flex flex-col items-center md:items-start max-w-4xl">
+                    <li class="flex items-start gap-3 drop-shadow-lg">
+                        <i data-lucide="check" class="text-neon w-5 h-5 mt-1 flex-shrink-0"></i>
+                        <span class="text-left font-medium">Мгновенный отклик педали газа, прибавка мощности и крутящего момента до 30%.</span>
+                    </li>
+                    <li class="flex items-start gap-3 drop-shadow-lg">
+                        <i data-lucide="check" class="text-neon w-5 h-5 mt-1 flex-shrink-0"></i>
+                        <span class="text-left font-medium">Русское меню, Яндекс Навигатор и приложения на штатном экране за 1 час. Без снятия ШГУ.</span>
+                    </li>
+                </ul>
+
+                <div class="flex flex-col sm:flex-row gap-4 w-full justify-center items-center">
+                    <button onclick="openModal('power-modal')" class="w-full sm:w-72 h-14 bg-neon text-dark rounded-xl font-black text-lg hover:shadow-[0_0_30px_rgba(0,242,255,0.4)] transition-all uppercase tracking-wider">
+                        Узнать мощность
+                    </button>
+                    <button onclick="openModal('general-modal', 'Русификация')" class="w-full sm:w-72 h-14 border-2 border-neon text-neon rounded-xl font-black text-lg hover:bg-neon/10 transition-all uppercase tracking-wider">
+                        Русифицировать
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="pt-32 pb-24 bg-dark relative">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center">Наши <span class="text-neon uppercase tracking-tighter">Услуги</span></h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
+                <!-- Card 1: Чип-тюнинг -->
+                <div class="glass p-8 rounded-3xl border border-neon/20 hover:border-neon/60 transition-all flex flex-col items-center text-center group">
+                    <div class="w-16 h-16 bg-neon/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                        <i data-lucide="cpu" class="w-8 h-8 text-neon"></i>
+                    </div>
+                    <h3 class="text-lg font-black mb-4 uppercase leading-tight">Чип-тюнинг (Прошивка двигателя и КПП)</h3>
+                    <p class="text-gray-400 text-sm mb-8 line-clamp-2 opacity-80">Улучшение ходовых качеств, отклика педали газа, увеличение л.с. и крутящего момента.</p>
+                    <button onclick="openServiceDetails('chip')" class="mt-auto w-full py-3 bg-neon text-dark rounded-xl font-black hover:shadow-[0_0_20px_rgba(0,242,255,0.4)] transition-all uppercase text-[12px] tracking-wider">
+                        ПОКАЗАТЬ ДЕТАЛИ
+                    </button>
+                </div>
+
+                <!-- Card 2: Удаление катализатора -->
+                <div class="glass p-8 rounded-3xl border border-neon/20 hover:border-neon/60 transition-all flex flex-col items-center text-center group">
+                    <div class="w-16 h-16 bg-neon/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                        <i data-lucide="flame" class="w-8 h-8 text-neon"></i>
+                    </div>
+                    <h3 class="text-lg font-black mb-4 uppercase leading-tight">Удаление катализатора</h3>
+                    <p class="text-gray-400 text-sm mb-8 line-clamp-2 opacity-80">Профессиональное решение проблем с экологией, физическое удаление и сварочные работы аргоном.</p>
+                    <button onclick="openServiceDetails('catalyst')" class="mt-auto w-full py-3 bg-neon text-dark rounded-xl font-black hover:shadow-[0_0_20px_rgba(0,242,255,0.4)] transition-all uppercase text-[12px] tracking-wider">
+                        ПОКАЗАТЬ ДЕТАЛИ
+                    </button>
+                </div>
+
+                <!-- Card 3: Русификация Kia/Hyundai -->
+                <div class="glass p-8 rounded-3xl border border-neon/20 hover:border-neon/60 transition-all flex flex-col items-center text-center group">
+                    <div class="w-16 h-16 bg-neon/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                        <i data-lucide="languages" class="w-8 h-8 text-neon"></i>
+                    </div>
+                    <h3 class="text-lg font-black mb-4 uppercase leading-tight">Русификация Kia/Hyundai/Genesis</h3>
+                    <p class="text-gray-400 text-sm mb-8 line-clamp-2 opacity-80">Полноценный русский язык в меню и на приборной панели за 1 час. Установка Яндекс.Навигатора и приложений.</p>
+                    <button onclick="openServiceDetails('kia')" class="mt-auto w-full py-3 bg-neon text-dark rounded-xl font-black hover:shadow-[0_0_20px_rgba(0,242,255,0.4)] transition-all uppercase text-[12px] tracking-wider">
+                        ПОКАЗАТЬ ДЕТАЛИ
+                    </button>
+                </div>
+
+                <!-- Card 4: Обновление мультимедиа Tank/Haval -->
+                <div class="glass p-8 rounded-3xl border border-neon/20 hover:border-neon/60 transition-all flex flex-col items-center text-center group">
+                    <div class="w-16 h-16 bg-neon/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
+                        <i data-lucide="monitor" class="w-8 h-8 text-neon"></i>
+                    </div>
+                    <h3 class="text-lg font-black mb-4 uppercase leading-tight">Обновление мультимедиа Tank / Haval</h3>
+                    <p class="text-gray-400 text-sm mb-8 line-clamp-2 opacity-80">Доступ к Яндекс Сервисам (Навигатор, Музыка) и приложениям на штатном экране. Обновление ГУ.</p>
+                    <button onclick="openServiceDetails('tank')" class="mt-auto w-full py-3 bg-neon text-dark rounded-xl font-black hover:shadow-[0_0_20px_rgba(0,242,255,0.4)] transition-all uppercase text-[12px] tracking-wider">
+                        ПОКАЗАТЬ ДЕТАЛИ
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Service Details Modal -->
+    <div id="service-details-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
+        <div class="absolute inset-0 bg-dark/95 backdrop-blur-xl" onclick="closeServiceDetails()"></div>
+        <div class="glass max-w-2xl w-full p-8 md:p-12 rounded-[40px] relative z-10 border border-neon/20 shadow-[0_0_50px_rgba(0,242,255,0.15)]">
+            <button onclick="closeServiceDetails()" class="absolute top-8 right-8 text-gray-400 hover:text-white transition-colors">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+            <div id="service-details-content">
+                <!-- Content will be injected by JS -->
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Portfolio Section -->
+    <section id="portfolio" class="py-24 bg-dark">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center">Наши <span class="text-neon">Работы</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Case 1 -->
+                <div class="rounded-2xl overflow-hidden glass group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="./Фото работы/IMG_20260318_195932.png" alt="Tank 500 Stage 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-neon text-xs font-bold uppercase tracking-widest mb-2 block">Stage 1 + Apps</span>
+                        <h4 class="text-xl font-bold mb-2">Tank 500 Hybrid</h4>
+                        <p class="text-gray-400 text-sm italic">"Прирост до 354 л.с. и установка Яндекс.Навигатора."</p>
+                    </div>
+                </div>
+                <!-- Case 2 -->
+                <div class="rounded-2xl overflow-hidden glass group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="./Фото работы/IMG_20260318_195954.png" alt="Genesis Russification" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-neon text-xs font-bold uppercase tracking-widest mb-2 block">Русификация</span>
+                        <h4 class="text-xl font-bold mb-2">Genesis GV80 (2022)</h4>
+                        <p class="text-gray-400 text-sm italic">"Полный перевод ГУ и приборной панели на Русский язык."</p>
+                    </div>
+                </div>
+                <!-- Case 3 -->
+                <div class="rounded-2xl overflow-hidden glass group">
+                    <div class="h-64 overflow-hidden">
+                        <img src="./Фото работы/IMG_20260318_200000.png" alt="Kia Sorento Tuning" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                    </div>
+                    <div class="p-6">
+                        <span class="text-neon text-xs font-bold uppercase tracking-widest mb-2 block">Чип-тюнинг</span>
+                        <h4 class="text-xl font-bold mb-2">Kia Sorento 2.2 CRDi</h4>
+                        <p class="text-gray-400 text-sm italic">"Удаление AdBlue и увеличение мощности до 240 л.с."</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-24 bg-dark/50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center">Отзывы <span class="text-neon">Клиентов</span></h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Review 1 -->
+                <div class="glass p-8 rounded-3xl relative border border-neon/10 hover:border-neon/30 transition-all">
+                    <div class="absolute -top-4 -right-4 bg-neon text-dark w-12 h-12 rounded-full flex items-center justify-center font-black">5.0</div>
+                    <p class="text-gray-300 italic mb-6">"Сделали Танк 500 под ключ: русификация и стейдж. Машина поехала совсем по-другому, интерфейс теперь радует глаз. Спасибо ребятам из Vtec Team!"</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold">А</div>
+                        <div>
+                            <h5 class="font-bold">Александр</h5>
+                            <p class="text-xs text-neon uppercase">Tank 500</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div class="glass p-8 rounded-3xl relative border border-neon/10 hover:border-neon/30 transition-all">
+                    <div class="absolute -top-4 -right-4 bg-neon text-dark w-12 h-12 rounded-full flex items-center justify-center font-black">5.0</div>
+                    <p class="text-gray-300 italic mb-6">"Обращался за русификацией Genesis. Всё четко, быстро, за пару часов машина начала говорить по-русски. Рекомендую профессионалов."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold">Д</div>
+                        <div>
+                            <h5 class="font-bold">Дмитрий</h5>
+                            <p class="text-xs text-neon uppercase">Genesis GV70</p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div class="glass p-8 rounded-3xl relative border border-neon/10 hover:border-neon/30 transition-all">
+                    <div class="absolute -top-4 -right-4 bg-neon text-dark w-12 h-12 rounded-full flex items-center justify-center font-black">5.0</div>
+                    <p class="text-gray-300 italic mb-6">"Удаляли катализатор и шили под евро-2 на Киа Соренто. Ошибка пропала, расход упал. Мастера знают своё дело. Очень доволен результатом."</p>
+                    <div class="flex items-center gap-4">
+                        <div class="w-12 h-12 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold">И</div>
+                        <div>
+                            <h5 class="font-bold">Игорь</h5>
+                            <p class="text-xs text-neon uppercase">Kia Sorento</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-dark">
+        <div class="container mx-auto px-4 max-w-[900px]">
+            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center italic uppercase tracking-tighter">Частые <span class="text-neon">Вопросы</span></h2>
+            
+            <div class="space-y-6">
+                <!-- FAQ 1 -->
+                <div class="accordion-item glass rounded-3xl overflow-hidden border border-neon/30 hover:border-neon transition-all">
+                    <button class="w-full p-8 text-center flex flex-col items-center justify-center font-black text-xl tracking-tight" onclick="toggleAccordion(this)">
+                        Остается ли гарантия дилера после чип-тюнинга?
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-neon transition-transform mt-4"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-6 text-gray-400">
+                        <p>Мы используем безопасное ПО, которое не обнаруживается диагностическим оборудованием дилера. При необходимости мы можем вернуть стоковую прошивку перед визитом в сервис.</p>
+                    </div>
+                </div>
+                <!-- FAQ 2 -->
+                <div class="accordion-item glass rounded-3xl overflow-hidden border border-neon/30 hover:border-neon transition-all">
+                    <button class="w-full p-8 text-center flex flex-col items-center justify-center font-black text-xl tracking-tight" onclick="toggleAccordion(this)">
+                        Сколько времени занимает русификация?
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-neon transition-transform mt-4"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-6 text-gray-400">
+                        <p>Обычно процесс занимает от 1.5 до 3 часов в зависимости от модели автомобиля и версии текущего программного обеспечения.</p>
+                    </div>
+                </div>
+                <!-- FAQ 3 -->
+                <div class="accordion-item glass rounded-3xl overflow-hidden border border-neon/30 hover:border-neon transition-all">
+                    <button class="w-full p-8 text-center flex flex-col items-center justify-center font-black text-xl tracking-tight" onclick="toggleAccordion(this)">
+                        Безопасно ли это для двигателя и мультимедиа?
+                        <i data-lucide="chevron-down" class="w-6 h-6 text-neon transition-transform mt-4"></i>
+                    </button>
+                    <div class="accordion-content px-6 pb-6 text-gray-400">
+                        <p>Да, мы используем только проверенные лицензионные решения. Все параметры двигателя остаются в пределах заводских допусков, а установка приложений не влияет на стабильность системы ГУ.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer / Contacts -->
+    <section id="contacts" class="py-24 bg-[#080808] border-t border-white/5">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col gap-20">
+                <!-- Contact Info Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full items-start mt-10">
+                    <div class="flex flex-col items-center text-center gap-4 group">
+                        <div class="w-16 h-16 bg-neon/10 rounded-2xl flex items-center justify-center group-hover:bg-neon transition-all duration-500">
+                            <i data-lucide="map-pin" class="text-neon w-8 h-8 group-hover:text-dark"></i>
+                        </div>
+                        <h4 class="font-black text-lg uppercase tracking-widest text-gray-500">Адрес</h4>
+                        <p class="text-xl font-bold">Красногорск, ул. Международная, 20</p>
+                    </div>
+                    
+                    <div class="flex flex-col items-center text-center gap-4 group">
+                        <div class="w-16 h-16 bg-neon/10 rounded-2xl flex items-center justify-center group-hover:bg-neon transition-all duration-500">
+                            <i data-lucide="phone" class="text-neon w-8 h-8 group-hover:text-dark"></i>
+                        </div>
+                        <h4 class="font-black text-lg uppercase tracking-widest text-gray-500">Телефон</h4>
+                        <a href="tel:+79991234567" class="text-xl font-bold hover:text-neon transition-colors tracking-tighter">+7 (999) 123-45-67</a>
+                    </div>
+                    
+                    <div class="flex flex-col items-center text-center gap-4 group">
+                        <div class="w-16 h-16 bg-neon/10 rounded-2xl flex items-center justify-center group-hover:bg-neon transition-all duration-500">
+                            <i data-lucide="send" class="text-neon w-8 h-8 group-hover:text-dark"></i>
+                        </div>
+                        <h4 class="font-black text-lg uppercase tracking-widest text-gray-500">Мессенджеры</h4>
+                        <div class="flex gap-4 mt-2">
+                            <a href="https://t.me/vtecteam" class="bg-neon/10 text-neon px-6 py-3 rounded-xl hover:bg-neon hover:text-dark transition-all font-black text-xs uppercase tracking-widest">Telegram</a>
+                            <a href="#" class="bg-white/5 text-white px-6 py-3 rounded-xl hover:bg-white/10 transition-all font-black text-xs uppercase tracking-widest">WhatsApp</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Map Container -->
+                <div class="w-full max-w-5xl mx-auto rounded-[40px] overflow-hidden glass h-[450px] relative border border-neon/20 shadow-[0_0_60px_rgba(0,255,255,0.05)]" style="margin-bottom: 40px;">
+                    <div class="absolute inset-0 grayscale flex items-center justify-center bg-gray-900 overflow-hidden">
+                        <img src="https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3Af7d3a8e4e6d9b9a4a7a8d8c9e0b1c2d3e4f5g6h7i8j9k0l1m2n3o4p5q6r7s8t9&amp;width=600&amp;height=500&amp;lang=ru_RU" alt="Карта Красногорска" class="w-full h-full object-cover opacity-50">
+                        <div class="absolute z-10 text-center p-10 bg-dark/90 backdrop-blur-md rounded-3xl border border-neon/30 shadow-[0_0_30px_rgba(0,255,255,0.2)]">
+                            <i data-lucide="map" class="w-12 h-12 text-neon mx-auto mb-4 animate-pulse"></i>
+                            <h5 class="text-2xl font-black mb-2 uppercase tracking-tight">Мы в Красногорске</h5>
+                            <p class="text-gray-400 font-medium">Работаем ежедневно с 10:00 до 21:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/5 mt-20 text-center">
+        <p class="text-gray-600 text-sm tracking-wide">© 2026 VTEC TEAM. Все права защищены.</p>
+    </footer>
+
+    <!-- Modals -->
+    <!-- Power Check Modal -->
+    <div id="power-modal" class="modal">
+        <div class="glass p-8 rounded-3xl w-full max-w-md mx-4 relative">
+            <button onclick="closeModal('power-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <i data-lucide="x"></i>
+            </button>
+            <h3 class="text-2xl font-black mb-6 text-neon uppercase italic">Узнать мощность</h3>
+            <form class="space-y-4">
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-gray-500 mb-1">Имя</label>
+                    <input type="text" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-neon outline-none text-white transition-all" placeholder="Ваше имя">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-gray-500 mb-1">Телефон</label>
+                    <input type="tel" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-neon outline-none text-white transition-all" placeholder="+7 (___) ___-__-__">
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-1">Марка</label>
+                        <input type="text" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-neon outline-none text-white transition-all" placeholder="Напр. BMW">
+                    </div>
+                    <div>
+                        <label class="block text-xs uppercase tracking-widest text-gray-500 mb-1">Модель</label>
+                        <input type="text" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-neon outline-none text-white transition-all" placeholder="Напр. X5">
+                    </div>
+                </div>
+                <button type="submit" class="w-full bg-neon text-dark font-black py-4 rounded-xl mt-4 hover:shadow-[0_0_20px_rgba(0,242,255,0.4)] transition-all">
+                    ОТПРАВИТЬ ЗАПРОС
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- General Inquiry Modal -->
+    <div id="general-modal" class="modal">
+        <div class="glass p-8 rounded-3xl w-full max-w-md mx-4 relative">
+            <button onclick="closeModal('general-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+                <i data-lucide="x"></i>
+            </button>
+            <h3 class="text-2xl font-black mb-2 text-neon uppercase italic" id="modal-title">Запись на услугу</h3>
+            <p class="text-gray-400 mb-6 text-sm" id="modal-subtitle">Оставьте заявку, и мы перезвоним в течение 5 минут.</p>
+            <form class="space-y-4">
+                <input type="hidden" id="service-field">
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-gray-500 mb-1">Имя</label>
+                    <input type="text" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-neon outline-none text-white transition-all" placeholder="Ваше имя">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase tracking-widest text-gray-500 mb-1">Телефон</label>
+                    <input type="tel" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-neon outline-none text-white transition-all" placeholder="+7 (___) ___-__-__">
+                </div>
+                <button type="submit" class="w-full bg-neon text-dark font-black py-4 rounded-xl mt-4 hover:shadow-[0_0_20px_rgba(0,242,255,0.4)] transition-all">
+                    ЗАПИСАТЬСЯ
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        // Initialize Lucide icons
+        lucide.createIcons();
+
+        // Mobile Menu Logic
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const closeMenuBtn = document.getElementById('close-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuLinks = document.querySelectorAll('.menu-link');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.remove('hidden');
+            mobileMenu.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+        });
+
+        const closeMenu = () => {
+            mobileMenu.classList.add('hidden');
+            mobileMenu.classList.remove('flex');
+            document.body.style.overflow = 'auto';
+        };
+
+        closeMenuBtn.addEventListener('click', closeMenu);
+        menuLinks.forEach(link => link.addEventListener('click', closeMenu));
+
+        // Modal Logic
+        function openModal(modalId, serviceName = '') {
+            const modal = document.getElementById(modalId);
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            if (serviceName && document.getElementById('modal-title')) {
+                document.getElementById('modal-title').innerText = serviceName;
+                document.getElementById('service-field').value = serviceName;
+            }
+        }
+
+        function closeModal(modalId) {
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal on click outside
+        window.onclick = function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.classList.remove('active');
+                document.body.style.overflow = 'auto';
+            }
+        }
+
+        // Accordion Logic
+        function toggleAccordion(btn) {
+            const item = btn.parentElement;
+            const isActive = item.classList.contains('active');
+            
+            // Close all other items
+            document.querySelectorAll('.accordion-item').forEach(el => {
+                el.classList.remove('active');
+            });
+
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        }
+
+        // Form Submission (Simulated)
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
+                closeModal('power-modal');
+                closeModal('general-modal');
+            });
+        });
+
+        // Header scroll effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('py-2');
+                header.classList.remove('py-4');
+                header.style.backgroundColor = 'rgba(13, 13, 13, 0.9)';
+            } else {
+                header.classList.add('py-4');
+                header.classList.remove('py-2');
+                header.style.backgroundColor = 'transparent';
+            }
+        });
+
+        // Service Details Logic
+        const servicesData = {
+            chip: {
+                title: 'Чип-тюнинг (Прошивка двигателя и КПП)',
+                icon: 'cpu',
+                description: 'Улучшение ходовых качеств, отклика педали газа, увеличение л.с. и крутящего момента.',
+                features: [
+                    'Программное отключение: катализаторов (Евро-2, Cataoff)',
+                    'Сажевых фильтров (DPF), ЕГР, мочевины (SCR, AdBlue)',
+                    'Вихревых заслонок, датчиков Nox',
+                    'Тест-драйв 14 дней',
+                    'Пожизненная гарантия на ПО'
+                ]
+            },
+            catalyst: {
+                title: 'Удаление катализатора',
+                icon: 'flame',
+                description: 'Профессиональное решение проблем с экологией, физическое удаление и сварочные работы аргоном.',
+                features: [
+                    'Полный цикл под ключ',
+                    'Установка пламегасителей',
+                    'Перевод на Евро-2',
+                    'Бесплатная диагностика перед работами'
+                ]
+            },
+            kia: {
+                title: 'Русификация ШГУ Kia/Hyundai/Genesis',
+                icon: 'languages',
+                description: 'Полноценный русский язык в меню и на приборной панели за 1 час. Установка Яндекс.Навигатора и приложений.',
+                features: [
+                    'Подсказки навигатора на проекцию',
+                    'Режим разделения экрана',
+                    'YouTube, ТВ, VLC',
+                    'Без нарушения штатных функций и гарантии'
+                ]
+            },
+            tank: {
+                title: 'Обновление мультимедиа Tank / Haval',
+                icon: 'monitor',
+                description: 'Доступ к Яндекс Сервисам (Навигатор, Музыка) и приложениям на штатном экране. Обновление ГУ.',
+                features: [
+                    'Проекция Яндекс Навигатора на приборную панель',
+                    'Вывод стрелок на штатный экран',
+                    'Разблокировка для самостоятельной установки приложений'
+                ]
+            }
+        };
+
+        function openServiceDetails(serviceId) {
+            const data = servicesData[serviceId];
+            const modal = document.getElementById('service-details-modal');
+            const content = document.getElementById('service-details-content');
+            
+            content.innerHTML = `
+                <div class="flex flex-col items-center text-center">
+                    <div class="w-20 h-20 bg-neon/10 rounded-2xl flex items-center justify-center mb-8">
+                        <i data-lucide="${data.icon}" class="w-10 h-10 text-neon"></i>
+                    </div>
+                    <h2 class="text-3xl font-black mb-4 text-white uppercase italic tracking-tighter">${data.title}</h2>
+                    <p class="text-gray-400 mb-10 max-w-xl text-lg">${data.description}</p>
+                    
+                    <div class="w-full bg-white/5 rounded-3xl p-8 mb-10 border border-white/5">
+                        <ul class="space-y-4 text-left">
+                            ${data.features.map(feature => `
+                                <li class="flex items-start gap-4">
+                                    <i data-lucide="check" class="text-neon w-6 h-6 mt-0.5 flex-shrink-0"></i>
+                                    <span class="text-gray-200 font-medium">${feature}</span>
+                                </li>
+                            `).join('')}
+                        </ul>
+                    </div>
+                    
+                    <button onclick="closeServiceDetails(); openModal('general-modal', '${data.title}')" class="w-full bg-neon text-dark py-5 rounded-2xl font-black text-xl hover:shadow-[0_0_40px_rgba(0,242,255,0.4)] hover:scale-[1.02] transition-all uppercase tracking-wider">
+                        Оставить заявку
+                    </button>
+                </div>
+            `;
+            
+            modal.style.display = 'flex';
+            lucide.createIcons();
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeServiceDetails() {
+            const modal = document.getElementById('service-details-modal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+</body>
+</html>

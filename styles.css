@@ -1,0 +1,45 @@
+/* Mobile Adaptation & Layout Overrides */
+
+@media (max-width: 768px) {
+    /* Force 1-column grid for critical sections */
+    #services .grid,
+    #portfolio .grid,
+    #testimonials .grid,
+    #contacts .grid {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* Reduce headline font sizes by 20% */
+    h1 {
+        font-size: clamp(1rem, 5vw, 2.5rem) !important;
+    }
+    
+    h2 {
+        font-size: 2rem !important; /* Approx 20% reduction from 2.5rem/3rem */
+    }
+
+    /* Adjust padding and spacing for mobile */
+    .container {
+        padding-left: 1.5rem !important;
+        padding-right: 1.5rem !important;
+    }
+
+    .py-24 {
+        padding-top: 4rem !important;
+        padding-bottom: 4rem !important;
+    }
+}
+
+/* Custom Accordion Styling */
+.accordion-item {
+    transition: all 0.3s ease;
+}
+
+.accordion-item.active {
+    border-color: #00FFFF !important;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+}
+
+.accordion-content {
+    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
