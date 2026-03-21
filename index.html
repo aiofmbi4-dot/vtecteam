@@ -31,6 +31,10 @@
     <!-- Lucide Icons -->
     <script src="https://unpkg.com/lucide@latest"></script>
     
+    
+    <!-- Swiper CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    
     <!-- Custom Styles -->
     <link rel="stylesheet" href="styles.css">
     
@@ -58,53 +62,9 @@
 
         .glass {
             background: rgba(255, 255, 255, 0.03);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            backdrop-filter: blur(5px);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .modal.active {
-            display: flex;
-        }
-
-        .accordion-content {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.3s ease-out;
-        }
-
-        .accordion-item.active .accordion-content {
-            max-height: 200px;
-        }
-
-        .accordion-item.active i {
-            transform: rotate(180deg);
-        }
-
-        @keyframes pulse-neon {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.7; }
-        }
-
-        .animate-pulse-neon {
-            animation: pulse-neon 2s infinite;
-        }
-        
-        .hero-title {
-            line-height: 1.3;
         }
     </style>
 </head>
@@ -122,7 +82,8 @@
                     <i data-lucide="home" class="w-5 h-5"></i>
                 </a>
                 <a href="#services" class="hover:text-neon transition-colors">Услуги</a>
-                <a href="#portfolio" class="hover:text-neon transition-colors">НАШИ РАБОТЫ</a>
+                <a href="#about" class="hover:text-neon transition-colors">О компании</a>
+                <a href="#portfolio" class="hover:text-neon transition-colors">Наши работы</a>
                 <a href="#contacts" class="hover:text-neon transition-colors">Контакты</a>
             </nav>
             
@@ -140,11 +101,12 @@
 
     <!-- Mobile Menu -->
     <div id="mobile-menu" class="fixed inset-0 z-[60] bg-dark/95 hidden flex-col items-center justify-center gap-8 text-2xl font-bold uppercase tracking-widest">
-        <button class="absolute top-6 right-6" id="close-menu-btn">
+        <button class="absolute top-6 right-6" id="close-menu-btn" aria-label="Закрыть меню" title="Закрыть меню">
             <i data-lucide="x" class="w-8 h-8"></i>
         </button>
         <a href="#" class="hover:text-neon menu-link">Домой</a>
         <a href="#services" class="hover:text-neon menu-link">Услуги</a>
+        <a href="#about" class="hover:text-neon menu-link">О компании</a>
         <a href="#portfolio" class="hover:text-neon menu-link">НАШИ РАБОТЫ</a>
         <a href="#contacts" class="hover:text-neon menu-link">Контакты</a>
     </div>
@@ -190,7 +152,7 @@
     <!-- Services Section -->
     <section id="services" class="pt-32 pb-24 bg-dark relative">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center">Наши <span class="text-neon uppercase tracking-tighter">Услуги</span></h2>
+            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center">Наши <span class="text-neon">услуги</span></h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
                 <!-- Card 1: Чип-тюнинг -->
@@ -244,6 +206,62 @@
         </div>
     </section>
 
+    <!-- About Us Section -->
+    <section id="about" class="py-24 bg-[#0D0D0D] relative overflow-hidden border-t border-white/5">
+        <!-- Watermark -->
+        <div class="absolute inset-0 flex items-center justify-center pointer-events-none opacity-[0.03] select-none">
+            <span class="text-[20rem] md:text-[30rem] font-black text-white leading-none">2018</span>
+        </div>
+
+        <div class="container mx-auto px-4 relative z-10">
+            <div class="max-w-4xl mx-auto text-center mb-20">
+                <h2 class="text-4xl md:text-5xl font-black mb-16 text-center">О <span class="text-neon">компании</span></h2>
+                <p class="text-xl text-gray-400 font-medium leading-relaxed">
+                    VTEC TEAM — федеральная сеть тюнинг-ателье. Профессионально раскрываем потенциал автомобилей с 2018 года. Мы не просто меняем прошивки — мы делаем вождение ярче и безопаснее.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Stat 1 -->
+                <div class="faq-item p-8 rounded-3xl text-center flex flex-col items-center justify-center">
+                    <span class="text-5xl font-black text-neon mb-2 tracking-tighter">28</span>
+                    <span class="text-white font-black uppercase tracking-widest text-xs opacity-50 mb-4 px-4">ФИЛИАЛОВ</span>
+                    <p class="text-gray-400 text-sm font-medium">География по всему СНГ</p>
+                </div>
+
+                <!-- Stat 2 -->
+                <div class="faq-item p-8 rounded-3xl text-center flex flex-col items-center justify-center">
+                    <span class="text-5xl font-black text-neon mb-2 tracking-tighter">1900+</span>
+                    <span class="text-white font-black uppercase tracking-widest text-xs opacity-50 mb-4 px-4">АВТО / ГОД</span>
+                    <p class="text-gray-400 text-sm font-medium">Опыт работы с тысячами моделей</p>
+                </div>
+
+                <!-- Stat 3 -->
+                <div class="faq-item p-8 rounded-3xl text-center flex flex-col items-center justify-center">
+                    <span class="text-xs text-neon font-bold uppercase tracking-[0.3em] mb-4">ПОЖИЗНЕННАЯ</span>
+                    <span class="text-4xl font-black text-white mb-2 tracking-tighter leading-none">ГАРАНТИЯ</span>
+                    <p class="text-gray-400 text-sm font-medium">На всё программное обеспечение</p>
+                </div>
+
+                <!-- Stat 4 -->
+                <div class="faq-item p-8 rounded-3xl text-center flex flex-col items-center justify-center">
+                    <div class="w-12 h-12 bg-neon/10 rounded-xl flex items-center justify-center mb-4">
+                        <i data-lucide="shield-check" class="w-6 h-6 text-neon"></i>
+                    </div>
+                    <span class="text-2xl font-black text-white uppercase tracking-tighter mb-1 leading-none">ДИЛЕРСКИЙ</span>
+                    <span class="text-2xl font-black text-neon uppercase tracking-tighter mb-2 leading-none">СОФТ</span>
+                    <p class="text-gray-400 text-sm font-medium">Безопасная работа без потери ресурса</p>
+                </div>
+            </div>
+
+            <div class="mt-20 text-center max-w-3xl mx-auto">
+                <p class="text-gray-500 font-medium italic">
+                    Мы используем только сертифицированное оборудование и проверенные решения. Наша цель — ваш комфорт и уверенность на дороге.
+                </p>
+            </div>
+        </div>
+    </section>
+
     <!-- Service Details Modal -->
     <div id="service-details-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
         <div class="absolute inset-0 bg-dark/95 backdrop-blur-xl" onclick="closeServiceDetails()"></div>
@@ -261,182 +279,447 @@
     <!-- Portfolio Section -->
     <section id="portfolio" class="py-24 bg-dark">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center">Наши <span class="text-neon">Работы</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <!-- Case 1 -->
-                <div class="rounded-2xl overflow-hidden glass group">
-                    <div class="h-64 overflow-hidden">
-                        <img src="./Фото работы/IMG_20260318_195932.png" alt="Tank 500 Stage 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
-                    </div>
-                    <div class="p-6">
-                        <span class="text-neon text-xs font-bold uppercase tracking-widest mb-2 block">Stage 1 + Apps</span>
-                        <h4 class="text-xl font-bold mb-2">Tank 500 Hybrid</h4>
-                        <p class="text-gray-400 text-sm italic">"Прирост до 354 л.с. и установка Яндекс.Навигатора."</p>
+            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center">Наши <span class="text-neon">работы</span></h2>
+            <div class="relative px-12">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Case 1 -->
+                        <div class="swiper-slide">
+                            <div class="rounded-2xl overflow-hidden glass group">
+                                <div class="h-64 overflow-hidden">
+                                    <img src="./Фото работы/IMG_20260318_195932.png" alt="Tank 500 Stage 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                                </div>
+                                <div class="p-6">
+                                    <span class="text-neon text-xs font-bold uppercase tracking-widest mb-2 block">Stage 1 + Apps</span>
+                                    <h4 class="text-xl font-bold mb-2">Tank 500 Hybrid</h4>
+                                    <p class="text-gray-400 text-sm italic">"Прирост до 354 л.с. и установка Яндекс.Навигатора."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Case 2 -->
+                        <div class="swiper-slide">
+                            <div class="rounded-2xl overflow-hidden glass group">
+                                <div class="h-64 overflow-hidden">
+                                    <img src="./Фото работы/IMG_20260318_195954.png" alt="Genesis Russification" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                                </div>
+                                <div class="p-6">
+                                    <span class="text-neon text-xs font-bold uppercase tracking-widest mb-2 block">Русификация</span>
+                                    <h4 class="text-xl font-bold mb-2">Genesis GV80 (2022)</h4>
+                                    <p class="text-gray-400 text-sm italic">"Полный перевод ГУ и приборной панели на Русский язык."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Case 3 -->
+                        <div class="swiper-slide">
+                            <div class="rounded-2xl overflow-hidden glass group">
+                                <div class="h-64 overflow-hidden">
+                                    <img src="./Фото работы/IMG_20260318_200000.png" alt="Kia Sorento Tuning" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                                </div>
+                                <div class="p-6">
+                                    <span class="text-neon text-xs font-bold uppercase tracking-widest mb-2 block">Чип-тюнинг</span>
+                                    <h4 class="text-xl font-bold mb-2">Kia Sorento 2.2 CRDi</h4>
+                                    <p class="text-gray-400 text-sm italic">"Удаление AdBlue и увеличение мощности до 240 л.с."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Case 4: Exeed RX -->
+                        <div class="swiper-slide">
+                            <div class="rounded-2xl overflow-hidden glass group">
+                                <div class="h-64 overflow-hidden">
+                                    <img src="./Фото работы/exeed_rx.png" alt="Exeed RX Russification" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                                </div>
+                                <div class="p-6">
+                                    <span class="text-neon text-xs font-bold uppercase tracking-widest mb-2 block">Русификация + Apps</span>
+                                    <h4 class="text-xl font-bold mb-2">Exeed RX (2024)</h4>
+                                    <p class="text-gray-400 text-sm italic">"Яндекс Навигатор и YouTube на штатном экране за 1 час."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Case 5: Geely Monjaro -->
+                        <div class="swiper-slide">
+                            <div class="rounded-2xl overflow-hidden glass group">
+                                <div class="h-64 overflow-hidden">
+                                    <img src="./Фото работы/geely_monjaro.png" alt="Geely Monjaro Stage 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                                </div>
+                                <div class="p-6">
+                                    <span class="text-neon text-xs font-bold uppercase tracking-widest mb-2 block">Stage 1 + Limit Off</span>
+                                    <h4 class="text-xl font-bold mb-2">Geely Monjaro</h4>
+                                    <p class="text-gray-400 text-sm italic">"Прибавка 42 л.с. и снятие лимита скорости для комфортных обгонов."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Case 6: BMW X5 -->
+                        <div class="swiper-slide">
+                            <div class="rounded-2xl overflow-hidden glass group">
+                                <div class="h-64 overflow-hidden">
+                                    <img src="./Фото работы/bmw_x5.png" alt="BMW X5 AdBlue Removal" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                                </div>
+                                <div class="p-6">
+                                    <span class="text-neon text-xs font-bold uppercase tracking-widest mb-2 block">Удаление AdBlue</span>
+                                    <h4 class="text-xl font-bold mb-2">BMW X5 G05</h4>
+                                    <p class="text-gray-400 text-sm italic">"Программное отключение мочевины и чистка впуска."</p>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Case 7: Audi A6 -->
+                        <div class="swiper-slide">
+                            <div class="rounded-2xl overflow-hidden glass group">
+                                <div class="h-64 overflow-hidden">
+                                    <img src="./Фото работы/audi_a6.png" alt="Audi A6 Gearbox Tuning" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                                </div>
+                                <div class="p-6">
+                                    <span class="text-neon text-xs font-bold uppercase tracking-widest mb-2 block">Тюнинг КПП (TVS)</span>
+                                    <h4 class="text-xl font-bold mb-2">Audi A6 C8</h4>
+                                    <p class="text-gray-400 text-sm italic">"Оптимизация работы робота, плавное трогание и быстрое переключение."</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- Case 2 -->
-                <div class="rounded-2xl overflow-hidden glass group">
-                    <div class="h-64 overflow-hidden">
-                        <img src="./Фото работы/IMG_20260318_195954.png" alt="Genesis Russification" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
-                    </div>
-                    <div class="p-6">
-                        <span class="text-neon text-xs font-bold uppercase tracking-widest mb-2 block">Русификация</span>
-                        <h4 class="text-xl font-bold mb-2">Genesis GV80 (2022)</h4>
-                        <p class="text-gray-400 text-sm italic">"Полный перевод ГУ и приборной панели на Русский язык."</p>
-                    </div>
-                </div>
-                <!-- Case 3 -->
-                <div class="rounded-2xl overflow-hidden glass group">
-                    <div class="h-64 overflow-hidden">
-                        <img src="./Фото работы/IMG_20260318_200000.png" alt="Kia Sorento Tuning" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
-                    </div>
-                    <div class="p-6">
-                        <span class="text-neon text-xs font-bold uppercase tracking-widest mb-2 block">Чип-тюнинг</span>
-                        <h4 class="text-xl font-bold mb-2">Kia Sorento 2.2 CRDi</h4>
-                        <p class="text-gray-400 text-sm italic">"Удаление AdBlue и увеличение мощности до 240 л.с."</p>
-                    </div>
-                </div>
+                <!-- Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
             </div>
-
         </div>
     </section>
 
     <!-- Testimonials Section -->
     <section id="testimonials" class="py-24 bg-dark/50">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center">Отзывы <span class="text-neon">Клиентов</span></h2>
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Review 1 -->
-                <div class="glass p-8 rounded-3xl relative border border-neon/10 hover:border-neon/30 transition-all">
-                    <div class="absolute -top-4 -right-4 bg-neon text-dark w-12 h-12 rounded-full flex items-center justify-center font-black">5.0</div>
-                    <p class="text-gray-300 italic mb-6">"Сделали Танк 500 под ключ: русификация и стейдж. Машина поехала совсем по-другому, интерфейс теперь радует глаз. Спасибо ребятам из Vtec Team!"</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold">А</div>
-                        <div>
-                            <h5 class="font-bold">Александр</h5>
-                            <p class="text-xs text-neon uppercase">Tank 500</p>
+            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center">Отзывы <span class="text-neon">клиентов</span></h2>
+            <div class="relative px-12">
+                <div class="swiper">
+                    <div class="swiper-wrapper">
+                        <!-- Review 1 -->
+                        <div class="swiper-slide h-auto flex flex-col">
+                            <div class="bubble glass relative transition-all">
+                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
+                                <p class="text-gray-300 italic">"Сделали Танк 500 под ключ: русификация и стейдж. Машина поехала совсем по-другому, интерфейс теперь радует глаз. Спасибо ребятам из Vtec Team!"</p>
+                                <hr class="border-gray-800 my-6">
+                                <div class="author-block flex items-center gap-4 mt-6">
+                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">А</div>
+                                    <div>
+                                        <h5 class="font-bold text-sm text-[#eee]">Александр</h5>
+                                        <p class="text-xs text-[#666] uppercase">Tank 500</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Review 2 -->
+                        <div class="swiper-slide h-auto flex flex-col">
+                            <div class="bubble glass relative transition-all">
+                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
+                                <p class="text-gray-300 italic">"Обращался за русификацией Genesis. Всё четко, быстро, за пару часов машина начала говорить по-русски. Рекомендую профессионалов."</p>
+                                <hr class="border-gray-800 my-6">
+                                <div class="author-block flex items-center gap-4 mt-6">
+                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">Д</div>
+                                    <div>
+                                        <h5 class="font-bold text-sm text-[#eee]">Дмитрий</h5>
+                                        <p class="text-xs text-[#666] uppercase">Genesis GV70</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Review 3 -->
+                        <div class="swiper-slide h-auto flex flex-col">
+                            <div class="bubble glass relative transition-all">
+                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
+                                <p class="text-gray-300 italic">"Удаляли катализатор и шили под евро-2 на Киа Соренто. Ошибка пропала, расход упал. Мастера знают своё дело. Очень доволен результатом."</p>
+                                <hr class="border-gray-800 my-6">
+                                <div class="author-block flex items-center gap-4 mt-6">
+                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">И</div>
+                                    <div>
+                                        <h5 class="font-bold text-sm text-[#eee]">Игорь</h5>
+                                        <p class="text-xs text-[#666] uppercase">Kia Sorento</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Review 4: Максим -->
+                        <div class="swiper-slide h-auto flex flex-col">
+                            <div class="bubble glass relative transition-all">
+                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
+                                <p class="text-gray-300 italic">"Сделали прошивку и русификацию. Машина поехала, как должна была with завода."</p>
+                                <hr class="border-gray-800 my-6">
+                                <div class="author-block flex items-center gap-4 mt-6">
+                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">М</div>
+                                    <div>
+                                        <h5 class="font-bold text-sm text-[#eee]">Максим</h5>
+                                        <p class="text-xs text-[#666] uppercase">Haval F7x</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Review 5: Сергей -->
+                        <div class="swiper-slide h-auto flex flex-col">
+                            <div class="bubble glass relative transition-all">
+                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
+                                <p class="text-gray-300 italic">"Ставил приложения, теперь в пробках не скучно. Всё работает четко."</p>
+                                <hr class="border-gray-800 my-6">
+                                <div class="author-block flex items-center gap-4 mt-6">
+                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">С</div>
+                                    <div>
+                                        <h5 class="font-bold text-sm text-[#eee]">Сергей</h5>
+                                        <p class="text-xs text-[#666] uppercase">Chery Tiggo 8 Pro</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Review 6: Елена -->
+                        <div class="swiper-slide h-auto flex flex-col">
+                            <div class="bubble glass relative transition-all">
+                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
+                                <p class="text-gray-300 italic">"Удаляли катализатор. Машина стала тише, расход упал. Очень довольна."</p>
+                                <hr class="border-gray-800 my-6">
+                                <div class="author-block flex items-center gap-4 mt-6">
+                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">Е</div>
+                                    <div>
+                                        <h5 class="font-bold text-sm text-[#eee]">Елена</h5>
+                                        <p class="text-xs text-[#666] uppercase">Geely Coolray</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Review 7: Артем -->
+                        <div class="swiper-slide h-auto flex flex-col">
+                            <div class="bubble glass relative transition-all">
+                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
+                                <p class="text-gray-300 italic">"Чиповал дизель, Stage 1. Разница колоссальная, особенно на трассе."</p>
+                                <hr class="border-gray-800 my-6">
+                                <div class="author-block flex items-center gap-4 mt-6">
+                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">А</div>
+                                    <div>
+                                        <h5 class="font-bold text-sm text-[#eee]">Артем</h5>
+                                        <p class="text-xs text-[#666] uppercase">BMW 5 G30</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Review 8: Владимир -->
+                        <div class="swiper-slide h-auto flex flex-col">
+                            <div class="bubble glass relative transition-all">
+                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
+                                <p class="text-gray-300 italic">"Отключали мочевину. Всё быстро, аккуратно, цена адекватная."</p>
+                                <hr class="border-gray-800 my-6">
+                                <div class="author-block flex items-center gap-4 mt-6">
+                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">В</div>
+                                    <div>
+                                        <h5 class="font-bold text-sm text-[#eee]">Владимир</h5>
+                                        <p class="text-xs text-[#666] uppercase">Audi Q7</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Review 9: Денис -->
+                        <div class="swiper-slide h-auto flex flex-col">
+                            <div class="bubble glass relative transition-all">
+                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
+                                <p class="text-gray-300 italic">"Русификация ШГУ. Теперь всё по-человечески, приложения летают."</p>
+                                <hr class="border-gray-800 my-6">
+                                <div class="author-block flex items-center gap-4 mt-6">
+                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">Д</div>
+                                    <div>
+                                        <h5 class="font-bold text-sm text-[#eee]">Денис</h5>
+                                        <p class="text-xs text-[#666] uppercase">Kia K5</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Review 10: Олег -->
+                        <div class="swiper-slide h-auto flex flex-col">
+                            <div class="bubble glass relative transition-all">
+                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
+                                <p class="text-gray-300 italic">"Делали русификацию и обновление карт. Профессиональный подход."</p>
+                                <hr class="border-gray-800 my-6">
+                                <div class="author-block flex items-center gap-4 mt-6">
+                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">О</div>
+                                    <div>
+                                        <h5 class="font-bold text-sm text-[#eee]">Олег</h5>
+                                        <p class="text-xs text-[#666] uppercase">Genesis G80</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Review 11: Кирилл -->
+                        <div class="swiper-slide h-auto flex flex-col">
+                            <div class="bubble glass relative transition-all">
+                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
+                                <p class="text-gray-300 italic">"Прошили под Stage 1. Ушла задумчивость педали газа. Одно удовольствие."</p>
+                                <hr class="border-gray-800 my-6">
+                                <div class="author-block flex items-center gap-4 mt-6">
+                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">К</div>
+                                    <div>
+                                        <h5 class="font-bold text-sm text-[#eee]">Кирилл</h5>
+                                        <p class="text-xs text-[#666] uppercase">Tank 300</p>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-                <!-- Review 2 -->
-                <div class="glass p-8 rounded-3xl relative border border-neon/10 hover:border-neon/30 transition-all">
-                    <div class="absolute -top-4 -right-4 bg-neon text-dark w-12 h-12 rounded-full flex items-center justify-center font-black">5.0</div>
-                    <p class="text-gray-300 italic mb-6">"Обращался за русификацией Genesis. Всё четко, быстро, за пару часов машина начала говорить по-русски. Рекомендую профессионалов."</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold">Д</div>
-                        <div>
-                            <h5 class="font-bold">Дмитрий</h5>
-                            <p class="text-xs text-neon uppercase">Genesis GV70</p>
-                        </div>
-                    </div>
-                </div>
-                <!-- Review 3 -->
-                <div class="glass p-8 rounded-3xl relative border border-neon/10 hover:border-neon/30 transition-all">
-                    <div class="absolute -top-4 -right-4 bg-neon text-dark w-12 h-12 rounded-full flex items-center justify-center font-black">5.0</div>
-                    <p class="text-gray-300 italic mb-6">"Удаляли катализатор и шили под евро-2 на Киа Соренто. Ошибка пропала, расход упал. Мастера знают своё дело. Очень доволен результатом."</p>
-                    <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold">И</div>
-                        <div>
-                            <h5 class="font-bold">Игорь</h5>
-                            <p class="text-xs text-neon uppercase">Kia Sorento</p>
-                        </div>
-                    </div>
-                </div>
+                <!-- Navigation -->
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <!-- Pagination -->
+                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
     <section class="py-24 bg-dark">
-        <div class="container mx-auto px-4 max-w-[900px]">
-            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center italic uppercase tracking-tighter">Частые <span class="text-neon">Вопросы</span></h2>
+        <div class="container mx-auto px-4 max-w-[850px]">
+            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center">Частые <span class="text-neon">вопросы</span></h2>
             
-            <div class="space-y-6">
-                <!-- FAQ 1 -->
-                <div class="accordion-item glass rounded-3xl overflow-hidden border border-neon/30 hover:border-neon transition-all">
-                    <button class="w-full p-8 text-center flex flex-col items-center justify-center font-black text-xl tracking-tight" onclick="toggleAccordion(this)">
-                        Остается ли гарантия дилера после чип-тюнинга?
-                        <i data-lucide="chevron-down" class="w-6 h-6 text-neon transition-transform mt-4"></i>
-                    </button>
-                    <div class="accordion-content px-6 pb-6 text-gray-400">
-                        <p>Мы используем безопасное ПО, которое не обнаруживается диагностическим оборудованием дилера. При необходимости мы можем вернуть стоковую прошивку перед визитом в сервис.</p>
+            <div class="space-y-4">
+                <!-- FAQ 1: Безопасность -->
+                <div class="accordion-item">
+                    <div class="faq-item rounded-2xl overflow-hidden">
+                        <button class="w-full faq-question flex items-center justify-between font-black text-xl tracking-tight text-white" onclick="toggleAccordion(this)">
+                            Безопасно ли это для двигателя?
+                            <i data-lucide="chevron-down" class="w-6 h-6 text-neon transition-transform"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="faq-answer">
+                                <p>Конечно. Мы используем только проверенный софт и не выходим за пределы заводских допусков. Ресурс мотора не снижается, а езда становится комфортнее.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- FAQ 2 -->
-                <div class="accordion-item glass rounded-3xl overflow-hidden border border-neon/30 hover:border-neon transition-all">
-                    <button class="w-full p-8 text-center flex flex-col items-center justify-center font-black text-xl tracking-tight" onclick="toggleAccordion(this)">
-                        Сколько времени занимает русификация?
-                        <i data-lucide="chevron-down" class="w-6 h-6 text-neon transition-transform mt-4"></i>
-                    </button>
-                    <div class="accordion-content px-6 pb-6 text-gray-400">
-                        <p>Обычно процесс занимает от 1.5 до 3 часов в зависимости от модели автомобиля и версии текущего программного обеспечения.</p>
+                <!-- FAQ 2: Катализатор -->
+                <div class="accordion-item">
+                    <div class="faq-item rounded-2xl overflow-hidden">
+                        <button class="w-full faq-question flex items-center justify-between font-black text-xl tracking-tight text-white" onclick="toggleAccordion(this)">
+                            Будут ли ошибки после удаления катализатора?
+                            <i data-lucide="chevron-down" class="w-6 h-6 text-neon transition-transform"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="faq-answer">
+                                <p>Никаких ошибок. Мы программно отключаем контроль катализатора и переводим авто на нормы Евро-2. Приборная панель будет чистой, а двигатель — работать стабильно.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <!-- FAQ 3 -->
-                <div class="accordion-item glass rounded-3xl overflow-hidden border border-neon/30 hover:border-neon transition-all">
-                    <button class="w-full p-8 text-center flex flex-col items-center justify-center font-black text-xl tracking-tight" onclick="toggleAccordion(this)">
-                        Безопасно ли это для двигателя и мультимедиа?
-                        <i data-lucide="chevron-down" class="w-6 h-6 text-neon transition-transform mt-4"></i>
-                    </button>
-                    <div class="accordion-content px-6 pb-6 text-gray-400">
-                        <p>Да, мы используем только проверенные лицензионные решения. Все параметры двигателя остаются в пределах заводских допусков, а установка приложений не влияет на стабильность системы ГУ.</p>
+                <!-- FAQ 3: Сроки -->
+                <div class="accordion-item">
+                    <div class="faq-item rounded-2xl overflow-hidden">
+                        <button class="w-full faq-question flex items-center justify-between font-black text-xl tracking-tight text-white" onclick="toggleAccordion(this)">
+                            Сколько времени занимают работы?
+                            <i data-lucide="chevron-down" class="w-6 h-6 text-neon transition-transform"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="faq-answer">
+                                <p>В среднем от 1 до 3 часов. Русификация делается за час, чип-тюнинг — за полтора. Вы можете подождать в нашей уютной клиентской зоне.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ 4: Расход -->
+                <div class="accordion-item">
+                    <div class="faq-item rounded-2xl overflow-hidden">
+                        <button class="w-full faq-question flex items-center justify-between font-black text-xl tracking-tight text-white" onclick="toggleAccordion(this)">
+                            Увеличится ли расход топлива?
+                            <i data-lucide="chevron-down" class="w-6 h-6 text-neon transition-transform"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="faq-answer">
+                                <p>При спокойной езде расход обычно падает на 0.5–1 литр за счет оптимизации работы мотора. При активном драйве он останется на прежнем уровне.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ 5: Откат -->
+                <div class="accordion-item">
+                    <div class="faq-item rounded-2xl overflow-hidden">
+                        <button class="w-full faq-question flex items-center justify-between font-black text-xl tracking-tight text-white" onclick="toggleAccordion(this)">
+                            Можно ли вернуть всё как было?
+                            <i data-lucide="chevron-down" class="w-6 h-6 text-neon transition-transform"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="faq-answer">
+                                <p>Да, мы всегда сохраняем вашу заводскую прошивку. Если захотите сделать «откат» к заводским настройкам, мы сделаем это быстро и бесплатно.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- FAQ 6: Запись -->
+                <div class="accordion-item">
+                    <div class="faq-item rounded-2xl overflow-hidden">
+                        <button class="w-full faq-question flex items-center justify-between font-black text-xl tracking-tight text-white" onclick="toggleAccordion(this)">
+                            Как записаться и как всё проходит?
+                            <i data-lucide="chevron-down" class="w-6 h-6 text-neon transition-transform"></i>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="faq-answer">
+                                <p>Просто оставьте заявку или позвоните. Мы подберем удобное время, проведем бесплатную диагностику и только потом приступим к работе.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer / Contacts -->
-    <section id="contacts" class="py-24 bg-[#080808] border-t border-white/5">
+    <!-- Footer -->
+    <footer id="contacts" class="pt-24 pb-12 bg-[#080808] border-t border-white/5 relative overflow-hidden">
+        <!-- Subtle Background Glow -->
+        <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[300px] bg-neon/5 blur-[120px] rounded-full pointer-events-none"></div>
+
         <div class="container mx-auto px-4">
-            <div class="flex flex-col gap-20">
-                <!-- Contact Info Grid -->
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-12 w-full items-start mt-10">
-                    <div class="flex flex-col items-center text-center gap-4 group">
-                        <div class="w-16 h-16 bg-neon/10 rounded-2xl flex items-center justify-center group-hover:bg-neon transition-all duration-500">
-                            <i data-lucide="map-pin" class="text-neon w-8 h-8 group-hover:text-dark"></i>
-                        </div>
-                        <h4 class="font-black text-lg uppercase tracking-widest text-gray-500">Адрес</h4>
-                        <p class="text-xl font-bold">Красногорск, ул. Международная, 20</p>
-                    </div>
-                    
-                    <div class="flex flex-col items-center text-center gap-4 group">
-                        <div class="w-16 h-16 bg-neon/10 rounded-2xl flex items-center justify-center group-hover:bg-neon transition-all duration-500">
-                            <i data-lucide="phone" class="text-neon w-8 h-8 group-hover:text-dark"></i>
-                        </div>
-                        <h4 class="font-black text-lg uppercase tracking-widest text-gray-500">Телефон</h4>
-                        <a href="tel:+79991234567" class="text-xl font-bold hover:text-neon transition-colors tracking-tighter">+7 (999) 123-45-67</a>
-                    </div>
-                    
-                    <div class="flex flex-col items-center text-center gap-4 group">
-                        <div class="w-16 h-16 bg-neon/10 rounded-2xl flex items-center justify-center group-hover:bg-neon transition-all duration-500">
-                            <i data-lucide="send" class="text-neon w-8 h-8 group-hover:text-dark"></i>
-                        </div>
-                        <h4 class="font-black text-lg uppercase tracking-widest text-gray-500">Мессенджеры</h4>
-                        <div class="flex gap-4 mt-2">
-                            <a href="https://t.me/vtecteam" class="bg-neon/10 text-neon px-6 py-3 rounded-xl hover:bg-neon hover:text-dark transition-all font-black text-xs uppercase tracking-widest">Telegram</a>
-                            <a href="#" class="bg-white/5 text-white px-6 py-3 rounded-xl hover:bg-white/10 transition-all font-black text-xs uppercase tracking-widest">WhatsApp</a>
-                        </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-16 mb-20">
+                <!-- Column 1: О компании -->
+                <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                    <span class="text-2xl font-black tracking-tighter text-neon mb-6 uppercase italic">VTEC TEAM</span>
+                    <p class="text-gray-400 leading-relaxed font-medium">
+                        Тюнинг и русификация с 2018 года. Раскрываем потенциал вашего авто, добавляем комфорт и современные функции без потери заводской надежности.
+                    </p>
+                    <div class="mt-8">
+                        <a href="https://t.me/vtecteam" class="inline-flex items-center gap-3 bg-neon text-dark px-8 py-4 rounded-2xl font-black text-sm uppercase tracking-widest hover:shadow-[0_0_30px_rgba(0,242,255,0.4)] hover:scale-105 transition-all">
+                            <i data-lucide="send" class="w-5 h-5"></i>
+                            Написать в Telegram
+                        </a>
                     </div>
                 </div>
-                
-                <!-- Map Container -->
-                <div class="w-full max-w-5xl mx-auto rounded-[40px] overflow-hidden glass h-[450px] relative border border-neon/20 shadow-[0_0_60px_rgba(0,255,255,0.05)]" style="margin-bottom: 40px;">
-                    <div class="absolute inset-0 grayscale flex items-center justify-center bg-gray-900 overflow-hidden">
-                        <img src="https://api-maps.yandex.ru/services/constructor/1.0/static/?um=constructor%3Af7d3a8e4e6d9b9a4a7a8d8c9e0b1c2d3e4f5g6h7i8j9k0l1m2n3o4p5q6r7s8t9&amp;width=600&amp;height=500&amp;lang=ru_RU" alt="Карта Красногорска" class="w-full h-full object-cover opacity-50">
-                        <div class="absolute z-10 text-center p-10 bg-dark/90 backdrop-blur-md rounded-3xl border border-neon/30 shadow-[0_0_30px_rgba(0,255,255,0.2)]">
-                            <i data-lucide="map" class="w-12 h-12 text-neon mx-auto mb-4 animate-pulse"></i>
-                            <h5 class="text-2xl font-black mb-2 uppercase tracking-tight">Мы в Красногорске</h5>
-                            <p class="text-gray-400 font-medium">Работаем ежедневно с 10:00 до 21:00</p>
+
+                <!-- Column 2: Услуги -->
+                <div class="flex flex-col items-center md:items-start">
+                    <h4 class="text-white font-black uppercase tracking-widest mb-8 text-sm opacity-50">Услуги</h4>
+                    <ul class="space-y-4 text-center md:text-left">
+                        <li><a href="#services" class="text-gray-400 hover:text-neon transition-colors font-medium">Чип-тюнинг</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-neon transition-colors font-medium">Удаление катализатора</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-neon transition-colors font-medium">Мультимедиа Tank / Haval</a></li>
+                        <li><a href="#services" class="text-gray-400 hover:text-neon transition-colors font-medium">Русификация авто</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Контакты -->
+                <div class="flex flex-col items-center md:items-start text-center md:text-left">
+                    <h4 class="text-white font-black uppercase tracking-widest mb-8 text-sm opacity-50">Контакты</h4>
+                    <div class="space-y-6">
+                        <div class="flex flex-col items-center md:items-start gap-1">
+                            <span class="text-xs uppercase tracking-widest text-gray-600 font-bold">Телефон</span>
+                            <a href="tel:+79991234567" class="text-xl font-black text-white hover:text-neon transition-colors tracking-tight">+7 (999) 123-45-67</a>
+                        </div>
+                        <div class="flex flex-col items-center md:items-start gap-1">
+                            <span class="text-xs uppercase tracking-widest text-gray-600 font-bold">Локация</span>
+                            <span class="text-xl font-black text-white">Красногорск</span>
+                        </div>
+                        <div class="flex flex-col items-center md:items-start gap-1">
+                            <span class="text-xs uppercase tracking-widest text-gray-600 font-bold">График работы</span>
+                            <span class="text-xl font-black text-white">Пн-Вс: 10:00 — 21:00</span>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
 
-    <footer class="py-12 border-t border-white/5 mt-20 text-center">
-        <p class="text-gray-600 text-sm tracking-wide">© 2026 VTEC TEAM. Все права защищены.</p>
+            <div class="pt-8 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-600 text-xs tracking-widest uppercase">© 2026 VTEC TEAM. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a href="#" class="text-gray-600 hover:text-neon transition-colors text-xs uppercase tracking-widest font-bold">Sitemap</a>
+                    <a href="#" class="text-gray-600 hover:text-neon transition-colors text-xs uppercase tracking-widest font-bold">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
     </footer>
 
     <!-- Modals -->
@@ -552,7 +835,7 @@
 
         // Accordion Logic
         function toggleAccordion(btn) {
-            const item = btn.parentElement;
+            const item = btn.closest('.accordion-item');
             const isActive = item.classList.contains('active');
             
             // Close all other items
@@ -560,6 +843,7 @@
                 el.classList.remove('active');
             });
 
+            // Toggle current item
             if (!isActive) {
                 item.classList.add('active');
             }
@@ -677,6 +961,36 @@
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
+    </script>
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            new Swiper('#portfolio .swiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                watchSlidesProgress: true,
+                autoplay: { delay: 4000 },
+                navigation: {
+                    nextEl: '#portfolio .swiper-button-next',
+                    prevEl: '#portfolio .swiper-button-prev',
+                },
+                breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+            });
+            new Swiper('#testimonials .swiper', {
+                slidesPerView: 1,
+                spaceBetween: 30,
+                loop: true,
+                watchSlidesProgress: true,
+                pagination: { el: '#testimonials .swiper-pagination', clickable: true },
+                navigation: {
+                    nextEl: '#testimonials .swiper-button-next',
+                    prevEl: '#testimonials .swiper-button-prev',
+                },
+                breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+            });
+        });
     </script>
 </body>
 </html>

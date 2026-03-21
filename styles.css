@@ -3,8 +3,6 @@
 @media (max-width: 768px) {
     /* Force 1-column grid for critical sections */
     #services .grid,
-    #portfolio .grid,
-    #testimonials .grid,
     #contacts .grid {
         grid-template-columns: 1fr !important;
     }
@@ -30,16 +28,172 @@
     }
 }
 
-/* Custom Accordion Styling */
-.accordion-item {
+/* Refined FAQ Styling */
+.faq-item {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(0, 255, 255, 0.3);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item:hover {
+    border-color: rgba(0, 255, 255, 0.8);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.faq-question {
+    padding: 2rem;
     transition: all 0.3s ease;
 }
 
-.accordion-item.active {
-    border-color: #00FFFF !important;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.1);
+.faq-answer {
+    color: #999;
+    padding: 0 2rem 2rem 2rem;
+    line-height: 1.6;
 }
 
 .accordion-content {
-    transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s ease-out;
+}
+
+.accordion-item.active .accordion-content {
+    max-height: 500px;
+    padding-bottom: 24px;
+}
+
+.accordion-item.active .faq-item {
+    border-color: rgba(0, 255, 255, 0.6);
+}
+
+.accordion-item.active i {
+    transform: rotate(180deg);
+}
+
+/* Modals */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    z-index: 1000;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal.active {
+    display: flex;
+}
+
+/* Animations */
+@keyframes pulse-neon {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+.animate-pulse-neon {
+    animation: pulse-neon 2s infinite;
+}
+
+.hero-title {
+    line-height: 1.3;
+}
+
+/* Swiper Pagination Styling */
+.swiper-pagination-bullet {
+    background: rgba(0, 255, 255, 0.3) !important;
+    opacity: 1 !important;
+}
+
+.swiper-pagination-bullet-active {
+    background: #00FFFF !important;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.5);
+}
+
+/* Robust Speech Bubble Testimonials */
+/* 1. Ensure Swiper doesn't clip the tails */
+.testimonials .swiper {
+    overflow: visible !important;
+    padding-bottom: 50px !important;
+}
+.testimonials .swiper-slide {
+    overflow: visible !important;
+    height: auto !important;
+}
+
+/* INTEGRATED TESTIMONIALS: No Tails, Integrated Author */
+.testimonials .swiper {
+    overflow: hidden !important;
+    padding-bottom: 50px !important;
+}
+.testimonials .swiper-slide {
+    height: auto !important;
+}
+
+.testimonials .bubble.glass {
+    position: relative !important;
+    background: rgba(255, 255, 255, 0.03) !important;
+    border: 1px solid rgba(0, 255, 255, 0.2) !important;
+    border-radius: 24px !important; /* Uniform soft corners */
+    padding: 2.5rem !important; /* Slightly more padding for integrated look */
+    -webkit-backdrop-filter: blur(12px) !important;
+    backdrop-filter: blur(12px) !important;
+    overflow: hidden !important; /* Keep everything within the border */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.testimonials .author-block {
+    margin-top: auto; /* Push to bottom of card */
+}
+
+.testimonials .author-block h5 {
+    color: #eee !important;
+}
+
+.testimonials .author-block p {
+    color: #666 !important;
+}
+
+/* Swiper Slide Equal Heights */
+.swiper-slide {
+    height: auto !important;
+    display: flex !important;
+}
+
+.swiper-slide > div.glass {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* Swiper Navigation Arrows */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #00FFFF !important;
+    transition: all 0.3s ease;
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-size: 24px !important;
+    font-weight: bold;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    text-shadow: 0 0 10px rgba(0, 255, 255, 0.8);
+}
+
+/* Swiper Pagination */
+.swiper-pagination {
+    position: relative !important;
+    margin-top: 30px !important;
 }
