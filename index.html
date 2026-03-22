@@ -66,6 +66,15 @@
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.05);
         }
+
+        .custom-scrollbar-minimal::-webkit-scrollbar {
+          width: 0px;
+          background: transparent; /* make scrollbar invisible */
+        }
+        .custom-scrollbar-minimal {
+          -ms-overflow-style: none;  /* IE and Edge */
+          scrollbar-width: none;  /* Firefox */
+        }
     </style>
 </head>
 <body class="bg-dark text-white">
@@ -392,166 +401,243 @@
                     <div class="swiper-wrapper">
                         <!-- Review 1 -->
                         <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass relative transition-all">
-                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
-                                <p class="text-gray-300 italic">"Сделали Танк 500 под ключ: русификация и стейдж. Машина поехала совсем по-другому, интерфейс теперь радует глаз. Спасибо ребятам из Vtec Team!"</p>
-                                <hr class="border-gray-800 my-6">
-                                <div class="author-block flex items-center gap-4 mt-6">
+                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
+                                <div class="flex items-center gap-4 mb-6 self-start text-left">
                                     <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">А</div>
                                     <div>
-                                        <h5 class="font-bold text-sm text-[#eee]">Александр</h5>
-                                        <p class="text-xs text-[#666] uppercase">Tank 500</p>
+                                        <h5 class="font-bold text-sm text-white author-name">Александр</h5>
                                     </div>
+                                </div>
+                                <div class="flex-1 flex items-center justify-center py-4">
+                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
+                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Сделали Танк 500 под ключ: русификация и стейдж. Машина поехала совсем по-другому, интерфейс теперь радует глаз. Спасибо ребятам из Vtec Team!"</p>
+                                    </div>
+                                </div>
+                                <div class="mt-6 flex justify-center">
+                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
+                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
+                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                         <!-- Review 2 -->
                         <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass relative transition-all">
-                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
-                                <p class="text-gray-300 italic">"Обращался за русификацией Genesis. Всё четко, быстро, за пару часов машина начала говорить по-русски. Рекомендую профессионалов."</p>
-                                <hr class="border-gray-800 my-6">
-                                <div class="author-block flex items-center gap-4 mt-6">
+                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
+                                <div class="flex items-center gap-4 mb-6 self-start text-left">
                                     <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">Д</div>
                                     <div>
-                                        <h5 class="font-bold text-sm text-[#eee]">Дмитрий</h5>
-                                        <p class="text-xs text-[#666] uppercase">Genesis GV70</p>
+                                        <h5 class="font-bold text-sm text-white author-name">Дмитрий</h5>
                                     </div>
+                                </div>
+                                <div class="flex-1 flex items-center justify-center py-4">
+                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
+                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Обращался за русификацией Genesis. Всё четко, быстро, за пару часов машина начала говорить по-русски. Рекомендую профессионалов."</p>
+                                    </div>
+                                </div>
+                                <div class="mt-6 flex justify-center">
+                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
+                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
+                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
                         <!-- Review 3 -->
                         <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass relative transition-all">
-                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
-                                <p class="text-gray-300 italic">"Удаляли катализатор и шили под евро-2 на Киа Соренто. Ошибка пропала, расход упал. Мастера знают своё дело. Очень доволен результатом."</p>
-                                <hr class="border-gray-800 my-6">
-                                <div class="author-block flex items-center gap-4 mt-6">
+                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
+                                <div class="flex items-center gap-4 mb-6 self-start text-left">
                                     <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">И</div>
                                     <div>
-                                        <h5 class="font-bold text-sm text-[#eee]">Игорь</h5>
-                                        <p class="text-xs text-[#666] uppercase">Kia Sorento</p>
+                                        <h5 class="font-bold text-sm text-white author-name">Игорь</h5>
                                     </div>
+                                </div>
+                                <div class="flex-1 flex items-center justify-center py-4">
+                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
+                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Удаляли катализатор и шили под евро-2 на Киа Соренто. Ошибка пропала, расход упал. Мастера знают своё дело. Очень доволен результатом."</p>
+                                    </div>
+                                </div>
+                                <div class="mt-6 flex justify-center">
+                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
+                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
+                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <!-- Review 4: Максим -->
+                        <!-- Review 4 -->
                         <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass relative transition-all">
-                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
-                                <p class="text-gray-300 italic">"Сделали прошивку и русификацию. Машина поехала, как должна была with завода."</p>
-                                <hr class="border-gray-800 my-6">
-                                <div class="author-block flex items-center gap-4 mt-6">
+                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
+                                <div class="flex items-center gap-4 mb-6 self-start text-left">
                                     <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">М</div>
                                     <div>
-                                        <h5 class="font-bold text-sm text-[#eee]">Максим</h5>
-                                        <p class="text-xs text-[#666] uppercase">Haval F7x</p>
+                                        <h5 class="font-bold text-sm text-white author-name">Максим</h5>
                                     </div>
+                                </div>
+                                <div class="flex-1 flex items-center justify-center py-4">
+                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
+                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Сделали прошивку и русификацию. Машина поехала, как должна была with завода."</p>
+                                    </div>
+                                </div>
+                                <div class="mt-6 flex justify-center">
+                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
+                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
+                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <!-- Review 5: Сергей -->
+                        <!-- Review 5 -->
                         <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass relative transition-all">
-                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
-                                <p class="text-gray-300 italic">"Ставил приложения, теперь в пробках не скучно. Всё работает четко."</p>
-                                <hr class="border-gray-800 my-6">
-                                <div class="author-block flex items-center gap-4 mt-6">
+                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
+                                <div class="flex items-center gap-4 mb-6 self-start text-left">
                                     <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">С</div>
                                     <div>
-                                        <h5 class="font-bold text-sm text-[#eee]">Сергей</h5>
-                                        <p class="text-xs text-[#666] uppercase">Chery Tiggo 8 Pro</p>
+                                        <h5 class="font-bold text-sm text-white author-name">Сергей</h5>
                                     </div>
+                                </div>
+                                <div class="flex-1 flex items-center justify-center py-4">
+                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
+                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Ставил приложения, теперь в пробках не скучно. Всё работает четко."</p>
+                                    </div>
+                                </div>
+                                <div class="mt-6 flex justify-center">
+                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
+                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
+                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <!-- Review 6: Елена -->
+                        <!-- Review 6 -->
                         <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass relative transition-all">
-                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
-                                <p class="text-gray-300 italic">"Удаляли катализатор. Машина стала тише, расход упал. Очень довольна."</p>
-                                <hr class="border-gray-800 my-6">
-                                <div class="author-block flex items-center gap-4 mt-6">
+                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
+                                <div class="flex items-center gap-4 mb-6 self-start text-left">
                                     <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">Е</div>
                                     <div>
-                                        <h5 class="font-bold text-sm text-[#eee]">Елена</h5>
-                                        <p class="text-xs text-[#666] uppercase">Geely Coolray</p>
+                                        <h5 class="font-bold text-sm text-white author-name">Елена</h5>
                                     </div>
+                                </div>
+                                <div class="flex-1 flex items-center justify-center py-4">
+                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
+                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Удаляли катализатор. Машина стала тише, расход упал. Очень довольна."</p>
+                                    </div>
+                                </div>
+                                <div class="mt-6 flex justify-center">
+                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
+                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
+                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <!-- Review 7: Артем -->
+                        <!-- Review 7 -->
                         <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass relative transition-all">
-                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
-                                <p class="text-gray-300 italic">"Чиповал дизель, Stage 1. Разница колоссальная, особенно на трассе."</p>
-                                <hr class="border-gray-800 my-6">
-                                <div class="author-block flex items-center gap-4 mt-6">
+                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
+                                <div class="flex items-center gap-4 mb-6 self-start text-left">
                                     <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">А</div>
                                     <div>
-                                        <h5 class="font-bold text-sm text-[#eee]">Артем</h5>
-                                        <p class="text-xs text-[#666] uppercase">BMW 5 G30</p>
+                                        <h5 class="font-bold text-sm text-white author-name">Артем</h5>
                                     </div>
+                                </div>
+                                <div class="flex-1 flex items-center justify-center py-4">
+                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
+                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Чиповал дизель, Stage 1. Разница колоссальная, особенно на трассе."</p>
+                                    </div>
+                                </div>
+                                <div class="mt-6 flex justify-center">
+                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
+                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
+                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <!-- Review 8: Владимир -->
+                        <!-- Review 8 -->
                         <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass relative transition-all">
-                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
-                                <p class="text-gray-300 italic">"Отключали мочевину. Всё быстро, аккуратно, цена адекватная."</p>
-                                <hr class="border-gray-800 my-6">
-                                <div class="author-block flex items-center gap-4 mt-6">
+                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
+                                <div class="flex items-center gap-4 mb-6 self-start text-left">
                                     <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">В</div>
                                     <div>
-                                        <h5 class="font-bold text-sm text-[#eee]">Владимир</h5>
-                                        <p class="text-xs text-[#666] uppercase">Audi Q7</p>
+                                        <h5 class="font-bold text-sm text-white author-name">Владимир</h5>
                                     </div>
+                                </div>
+                                <div class="flex-1 flex items-center justify-center py-4">
+                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
+                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Отключали мочевину. Всё быстро, аккуратно, цена адекватная."</p>
+                                    </div>
+                                </div>
+                                <div class="mt-6 flex justify-center">
+                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
+                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
+                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <!-- Review 9: Денис -->
+                        <!-- Review 9 -->
                         <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass relative transition-all">
-                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
-                                <p class="text-gray-300 italic">"Русификация ШГУ. Теперь всё по-человечески, приложения летают."</p>
-                                <hr class="border-gray-800 my-6">
-                                <div class="author-block flex items-center gap-4 mt-6">
+                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
+                                <div class="flex items-center gap-4 mb-6 self-start text-left">
                                     <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">Д</div>
                                     <div>
-                                        <h5 class="font-bold text-sm text-[#eee]">Денис</h5>
-                                        <p class="text-xs text-[#666] uppercase">Kia K5</p>
+                                        <h5 class="font-bold text-sm text-white author-name">Денис</h5>
                                     </div>
+                                </div>
+                                <div class="flex-1 flex items-center justify-center py-4">
+                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
+                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Русификация ШГУ. Теперь всё по-человечески, приложения летают."</p>
+                                    </div>
+                                </div>
+                                <div class="mt-6 flex justify-center">
+                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
+                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
+                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <!-- Review 10: Олег -->
+                        <!-- Review 10 -->
                         <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass relative transition-all">
-                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
-                                <p class="text-gray-300 italic">"Делали русификацию и обновление карт. Профессиональный подход."</p>
-                                <hr class="border-gray-800 my-6">
-                                <div class="author-block flex items-center gap-4 mt-6">
+                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
+                                <div class="flex items-center gap-4 mb-6 self-start text-left">
                                     <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">О</div>
                                     <div>
-                                        <h5 class="font-bold text-sm text-[#eee]">Олег</h5>
-                                        <p class="text-xs text-[#666] uppercase">Genesis G80</p>
+                                        <h5 class="font-bold text-sm text-white author-name">Олег</h5>
                                     </div>
+                                </div>
+                                <div class="flex-1 flex items-center justify-center py-4">
+                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
+                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Делали русификацию и обновление карт. Профессиональный подход."</p>
+                                    </div>
+                                </div>
+                                <div class="mt-6 flex justify-center">
+                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
+                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
+                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
-                        <!-- Review 11: Кирилл -->
+                        <!-- Review 11 -->
                         <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass relative transition-all">
-                                <div class="absolute top-4 right-4 w-10 h-10 bg-neon rounded-full flex items-center justify-center text-dark font-black text-xs shadow-[0_0_15px_rgba(0,242,255,0.5)]">5.0</div>
-                                <p class="text-gray-300 italic">"Прошили под Stage 1. Ушла задумчивость педали газа. Одно удовольствие."</p>
-                                <hr class="border-gray-800 my-6">
-                                <div class="author-block flex items-center gap-4 mt-6">
+                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
+                                <div class="flex items-center gap-4 mb-6 self-start text-left">
                                     <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">К</div>
                                     <div>
-                                        <h5 class="font-bold text-sm text-[#eee]">Кирилл</h5>
-                                        <p class="text-xs text-[#666] uppercase">Tank 300</p>
+                                        <h5 class="font-bold text-sm text-white author-name">Кирилл</h5>
                                     </div>
+                                </div>
+                                <div class="flex-1 flex items-center justify-center py-4">
+                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
+                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Прошили под Stage 1. Ушла задумчивость педали газа. Одно удовольствие."</p>
+                                    </div>
+                                </div>
+                                <div class="mt-6 flex justify-center">
+                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
+                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
+                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -780,7 +866,50 @@
             </form>
         </div>
     </div>
+    <!-- Review Detail Modal -->
+    <div id="review-modal" class="modal">
+        <div class="glass p-8 md:p-10 rounded-[2rem] w-full max-w-lg mx-4 relative border border-neon/20 shadow-[0_0_50px_rgba(0,242,255,0.1)]">
+            <button onclick="closeReviewModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors">
+                <i data-lucide="x" class="w-6 h-6"></i>
+            </button>
+            
+            <div class="flex items-center gap-4 mb-8">
+                <div id="modal-review-avatar" class="w-14 h-14 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-xl"></div>
+                <div>
+                    <h3 id="modal-review-author" class="text-xl font-black text-white leading-tight"></h3>
+                </div>
+            </div>
 
+            <div class="relative">
+                <div class="absolute -top-4 -left-2 text-6xl text-neon/10 font-serif">“</div>
+                <div id="modal-review-body" class="text-gray-300 italic leading-relaxed text-lg custom-scrollbar-minimal max-h-[60vh] overflow-y-auto pr-2">
+                    <!-- Review text will be injected here -->
+                </div>
+                <div class="absolute -bottom-8 -right-2 text-6xl text-neon/10 font-serif transition-transform rotate-180">“</div>
+            </div>
+
+            <div class="mt-10 pt-6 border-t border-white/5 flex justify-between items-center">
+                <div class="flex items-center gap-1">
+                    <i data-lucide="star" class="w-4 h-4 text-neon fill-neon"></i>
+                    <i data-lucide="star" class="w-4 h-4 text-neon fill-neon"></i>
+                    <i data-lucide="star" class="w-4 h-4 text-neon fill-neon"></i>
+                    <i data-lucide="star" class="w-4 h-4 text-neon fill-neon"></i>
+                    <i data-lucide="star" class="w-4 h-4 text-neon fill-neon"></i>
+                    <span class="text-xs font-bold text-white ml-2">Оценка 5.0</span>
+                </div>
+                <span class="text-[10px] text-gray-500 uppercase tracking-tighter">Проверенный отзыв</span>
+            </div>
+
+            <!-- Global Yandex Maps Link Button -->
+            <div class="mt-8">
+                <a href="https://yandex.com/maps/-/CPRK6DIX" target="_blank" rel="noopener noreferrer" class="w-full flex items-center justify-center gap-3 bg-white/5 border border-white/10 hover:border-neon/50 hover:bg-neon/5 text-neon font-black py-4 rounded-2xl transition-all uppercase tracking-widest text-xs group">
+                    <i data-lucide="map-pin" class="w-4 h-4 group-hover:scale-110 transition-transform"></i>
+                    СМОТРЕТЬ ОТЗЫВ В КАРТАХ
+                </a>
+            </div>
+        </div>
+    </div>
+    
     <!-- Scripts -->
     <script>
         // Initialize Lucide icons
@@ -961,6 +1090,28 @@
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }
+
+        function openReviewModal(reviewData) {
+            const modal = document.getElementById('review-modal');
+            
+            // Clean author name: remove "(Car Model)" part if present
+            const cleanName = reviewData.author.replace(/\s*\(.*?\)\s*/g, '').trim();
+            
+            document.getElementById('modal-review-author').innerText = cleanName;
+            document.getElementById('modal-review-body').innerText = reviewData.body;
+            document.getElementById('modal-review-avatar').innerText = cleanName.charAt(0);
+            
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            
+            lucide.createIcons();
+        }
+
+        function closeReviewModal() {
+            const modal = document.getElementById('review-modal');
+            modal.classList.remove('active');
+            document.body.style.overflow = 'auto';
+        }
     </script>
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -989,6 +1140,18 @@
                     prevEl: '#testimonials .swiper-button-prev',
                 },
                 breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
+            });
+
+            // Review Modal Click Handler
+            document.querySelector('#testimonials .swiper').addEventListener('click', (e) => {
+                const btn = e.target.closest('.read-more-btn');
+                if (btn) {
+                    const slide = btn.closest('.swiper-slide');
+                    const author = slide.querySelector('.author-name').innerText;
+                    const body = slide.querySelector('.review-body').innerText;
+                    
+                    openReviewModal({ author, body });
+                }
             });
         });
     </script>
