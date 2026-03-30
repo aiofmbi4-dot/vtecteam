@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>VTEC TEAM | Чип-тюнинг и Русификация в Красногорске</title>
-    <meta name="description" content="Профессиональный чип-тюнинг, удаление катализаторов и русификация Kia, Hyundai, Genesis, Tank, Haval в Красногорске. Раскройте потенциал вашего авто.">
+    <title>Vtec Team — Федеральная сеть тюнинг-центров | Чип-тюнинг и Русификация</title>
+    <meta name="description" content="Профессиональный чип-тюнинг, русификация мультимедиа и удаление катализаторов в федеральной сети Vtec Team. Авторские программы калибровки, 10 дней тест-драйва и гарантия качества.">
+    <meta name="keywords" content="чип-тюнинг, русификация авто, vtec team, тюнинг ателье Красногорск, увеличение мощности двигателя, прошивка авто">
     
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,7 +15,7 @@
                 extend: {
                     colors: {
                         dark: '#0D0D0D',
-                        neon: '#00FFFF', // Neon Cyan
+                        neon: '#00D1FF', // Neon Cyan
                         'neon-dim': 'rgba(0, 255, 255, 0.1)',
                     },
                     fontFamily: {
@@ -75,7 +76,61 @@
           -ms-overflow-style: none;  /* IE and Edge */
           scrollbar-width: none;  /* Firefox */
         }
+        
+        /* Scroll Animations */
+        .scroll-anim {
+            opacity: 0;
+            transform: translateY(3rem);
+            transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .scroll-anim.show {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+        
+        .stagger-1 { transition-delay: 100ms; }
+        .stagger-2 { transition-delay: 200ms; }
+        .stagger-3 { transition-delay: 300ms; }
+        .stagger-4 { transition-delay: 400ms; }
+
+        /* Form Validation & Notification */
+        @keyframes shake {
+            0%, 100% { transform: translateX(0); }
+            10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+            20%, 40%, 60%, 80% { transform: translateX(4px); }
+        }
+        .error-shake {
+            animation: shake 0.5s cubic-bezier(.36,.07,.19,.97) both;
+            border-color: #ef4444 !important;
+            box-shadow: 0 0 10px rgba(239, 68, 68, 0.4) !important;
+        }
+
+        #success-notification {
+            pointer-events: none;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        #success-notification.active {
+            opacity: 1 !important;
+            transform: scale(1) !important;
+            pointer-events: auto;
+        }
     </style>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Vtec Team",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Успенская ул., 1",
+        "addressLocality": "г. Красногорск",
+        "addressCountry": "RU"
+      },
+      "telephone": "+7 (925) 440-49-70",
+      "priceRange": "$$",
+      "openingHours": "Mo-Su 10:00-20:00"
+    }
+    </script>
 </head>
 <body class="bg-dark text-white">
 
@@ -124,18 +179,18 @@
     <section class="relative min-h-screen flex items-center pt-20 pb-20 overflow-hidden">
         <!-- Background Image with Overlay -->
         <div class="absolute inset-0 z-0">
-            <img src="./Фон/Вместо_надписи_overhaul_202603182044.png" alt="Vtec Team Tuning Studio" class="w-full h-full object-cover opacity-40">
+            <img src="./Фон/Вместо_надписи_overhaul_202603182044.webp" alt="Vtec Team Tuning Studio" class="w-full h-full object-cover opacity-40">
             <div class="absolute inset-0 bg-gradient-to-b from-dark/80 via-dark/40 to-dark"></div>
         </div>
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="max-w-5xl mx-auto text-center flex flex-col items-center pt-[140px]">
-                <h1 class="hero-title mb-4 drop-shadow-2xl flex flex-col items-center w-full">
+                <h1 class="hero-title mb-4 drop-shadow-2xl flex flex-col items-center w-full scroll-anim">
                     <span class="whitespace-nowrap font-black text-white text-[clamp(1.2rem,6vw,3.2rem)] uppercase tracking-tight opacity-95 shrink-0">Твой автомобиль. Твои правила.</span>
                     <span class="whitespace-nowrap font-black text-[clamp(1.2rem,6vw,3.2rem)] text-neon neon-text uppercase shrink-0">Раскрой скрытый потенциал.</span>
                 </h1>
                 
-                <ul class="space-y-3 mt-6 mb-12 text-[0.95rem] md:text-[1.05rem] text-gray-200 flex flex-col items-center md:items-start max-w-4xl">
+                <ul class="space-y-3 mt-6 mb-12 text-[0.95rem] md:text-[1.05rem] text-gray-200 flex flex-col items-center md:items-start max-w-4xl scroll-anim stagger-1">
                     <li class="flex items-start gap-3 drop-shadow-lg">
                         <i data-lucide="check" class="text-neon w-5 h-5 mt-1 flex-shrink-0"></i>
                         <span class="text-left font-medium">Мгновенный отклик педали газа, прибавка мощности и крутящего момента до 30%.</span>
@@ -146,7 +201,7 @@
                     </li>
                 </ul>
 
-                <div class="flex flex-col sm:flex-row gap-4 w-full justify-center items-center">
+                <div class="flex flex-col sm:flex-row gap-4 w-full justify-center items-center scroll-anim stagger-2">
                     <button onclick="openModal('power-modal')" class="w-full sm:w-72 h-14 bg-neon text-dark rounded-xl font-black text-lg hover:shadow-[0_0_30px_rgba(0,242,255,0.4)] transition-all uppercase tracking-wider">
                         Узнать мощность
                     </button>
@@ -161,11 +216,11 @@
     <!-- Services Section -->
     <section id="services" class="pt-32 pb-24 bg-dark relative">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center">Наши <span class="text-neon">услуги</span></h2>
+            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center scroll-anim">Наши <span class="text-neon">услуги</span></h2>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 justify-center">
                 <!-- Card 1: Чип-тюнинг -->
-                <div class="glass p-8 rounded-3xl border border-neon/20 hover:border-neon/60 transition-all flex flex-col items-center text-center group">
+                <div class="glass p-8 rounded-3xl border border-neon/20 hover:border-neon/60 flex flex-col items-center text-center group scroll-anim stagger-1">
                     <div class="w-16 h-16 bg-neon/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                         <i data-lucide="cpu" class="w-8 h-8 text-neon"></i>
                     </div>
@@ -177,7 +232,7 @@
                 </div>
 
                 <!-- Card 2: Удаление катализатора -->
-                <div class="glass p-8 rounded-3xl border border-neon/20 hover:border-neon/60 transition-all flex flex-col items-center text-center group">
+                <div class="glass p-8 rounded-3xl border border-neon/20 hover:border-neon/60 flex flex-col items-center text-center group scroll-anim stagger-2">
                     <div class="w-16 h-16 bg-neon/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                         <i data-lucide="flame" class="w-8 h-8 text-neon"></i>
                     </div>
@@ -189,7 +244,7 @@
                 </div>
 
                 <!-- Card 3: Русификация Kia/Hyundai -->
-                <div class="glass p-8 rounded-3xl border border-neon/20 hover:border-neon/60 transition-all flex flex-col items-center text-center group">
+                <div class="glass p-8 rounded-3xl border border-neon/20 hover:border-neon/60 flex flex-col items-center text-center group scroll-anim stagger-3">
                     <div class="w-16 h-16 bg-neon/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                         <i data-lucide="languages" class="w-8 h-8 text-neon"></i>
                     </div>
@@ -201,7 +256,7 @@
                 </div>
 
                 <!-- Card 4: Обновление мультимедиа Tank/Haval -->
-                <div class="glass p-8 rounded-3xl border border-neon/20 hover:border-neon/60 transition-all flex flex-col items-center text-center group">
+                <div class="glass p-8 rounded-3xl border border-neon/20 hover:border-neon/60 flex flex-col items-center text-center group scroll-anim stagger-4">
                     <div class="w-16 h-16 bg-neon/10 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-500">
                         <i data-lucide="monitor" class="w-8 h-8 text-neon"></i>
                     </div>
@@ -224,7 +279,7 @@
 
         <div class="container mx-auto px-4 relative z-10">
             <div class="max-w-4xl mx-auto text-center mb-20">
-                <h2 class="text-4xl md:text-5xl font-black mb-16 text-center">О <span class="text-neon">компании</span></h2>
+                <h2 class="text-4xl md:text-5xl font-black mb-16 text-center scroll-anim">О <span class="text-neon">компании</span></h2>
                 <p class="text-xl text-gray-400 font-medium leading-relaxed">
                     VTEC TEAM — федеральная сеть тюнинг-ателье. Профессионально раскрываем потенциал автомобилей с 2018 года. Мы не просто меняем прошивки — мы делаем вождение ярче и безопаснее.
                 </p>
@@ -232,28 +287,28 @@
 
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                 <!-- Stat 1 -->
-                <div class="faq-item p-8 rounded-3xl text-center flex flex-col items-center justify-center">
+                <div class="faq-item p-8 rounded-3xl text-center flex flex-col items-center justify-center scroll-anim">
                     <span class="text-5xl font-black text-neon mb-2 tracking-tighter">28</span>
                     <span class="text-white font-black uppercase tracking-widest text-xs opacity-50 mb-4 px-4">ФИЛИАЛОВ</span>
                     <p class="text-gray-400 text-sm font-medium">География по всему СНГ</p>
                 </div>
 
                 <!-- Stat 2 -->
-                <div class="faq-item p-8 rounded-3xl text-center flex flex-col items-center justify-center">
+                <div class="faq-item p-8 rounded-3xl text-center flex flex-col items-center justify-center scroll-anim">
                     <span class="text-5xl font-black text-neon mb-2 tracking-tighter">1900+</span>
                     <span class="text-white font-black uppercase tracking-widest text-xs opacity-50 mb-4 px-4">АВТО / ГОД</span>
                     <p class="text-gray-400 text-sm font-medium">Опыт работы с тысячами моделей</p>
                 </div>
 
                 <!-- Stat 3 -->
-                <div class="faq-item p-8 rounded-3xl text-center flex flex-col items-center justify-center">
+                <div class="faq-item p-8 rounded-3xl text-center flex flex-col items-center justify-center scroll-anim">
                     <span class="text-xs text-neon font-bold uppercase tracking-[0.3em] mb-4">ПОЖИЗНЕННАЯ</span>
                     <span class="text-4xl font-black text-white mb-2 tracking-tighter leading-none">ГАРАНТИЯ</span>
                     <p class="text-gray-400 text-sm font-medium">На всё программное обеспечение</p>
                 </div>
 
                 <!-- Stat 4 -->
-                <div class="faq-item p-8 rounded-3xl text-center flex flex-col items-center justify-center">
+                <div class="faq-item p-8 rounded-3xl text-center flex flex-col items-center justify-center scroll-anim">
                     <div class="w-12 h-12 bg-neon/10 rounded-xl flex items-center justify-center mb-4">
                         <i data-lucide="shield-check" class="w-6 h-6 text-neon"></i>
                     </div>
@@ -271,16 +326,14 @@
         </div>
     </section>
 
-    <!-- Service Details Modal -->
-    <div id="service-details-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4">
-        <div class="absolute inset-0 bg-dark/95 backdrop-blur-xl" onclick="closeServiceDetails()"></div>
-        <div class="glass max-w-2xl w-full p-8 md:p-12 rounded-[40px] relative z-10 border border-neon/20 shadow-[0_0_50px_rgba(0,242,255,0.15)]">
-            <button onclick="closeServiceDetails()" class="absolute top-8 right-8 text-gray-400 hover:text-white transition-colors">
-                <i data-lucide="x" class="w-8 h-8"></i>
-            </button>
-            <div id="service-details-content">
-                <!-- Content will be injected by JS -->
-            </div>
+    <!-- Service Details Slide-over -->
+    <div id="service-details-backdrop" class="fixed inset-0 bg-dark/80 backdrop-blur-md z-[90] hidden opacity-0 transition-opacity duration-300" onclick="closeServiceDetails()"></div>
+    <div id="service-details-panel" role="dialog" aria-modal="true" class="fixed top-0 right-0 h-full w-full max-w-2xl bg-[#0D0D0D] z-[100] transform translate-x-full transition-transform duration-300 ease-in-out shadow-[-10px_0_30px_rgba(0,0,0,0.5)] border-l border-neon/20 flex flex-col p-8 md:p-12 overflow-y-auto">
+        <button aria-label="Закрыть" onclick="closeServiceDetails()" class="absolute top-6 right-6 lg:top-8 lg:right-8 text-gray-400 hover:text-white transition-colors z-10">
+            <i data-lucide="x" class="w-8 h-8"></i>
+        </button>
+        <div id="service-details-content" class="flex-1 mt-8 flex flex-col">
+            <!-- Content will be injected by JS -->
         </div>
     </div>
 
@@ -288,101 +341,11 @@
     <!-- Portfolio Section -->
     <section id="portfolio" class="py-24 bg-dark">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center">Наши <span class="text-neon">работы</span></h2>
+            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center scroll-anim">Наши <span class="text-neon">работы</span></h2>
             <div class="relative px-12">
                 <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <!-- Case 1 -->
-                        <div class="swiper-slide">
-                            <div class="rounded-2xl overflow-hidden glass group">
-                                <div class="h-64 overflow-hidden">
-                                    <img src="./Фото работы/IMG_20260318_195932.png" alt="Tank 500 Stage 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
-                                </div>
-                                <div class="p-6">
-                                    <span class="text-neon text-xs font-bold uppercase tracking-widest mb-2 block">Stage 1 + Apps</span>
-                                    <h4 class="text-xl font-bold mb-2">Tank 500 Hybrid</h4>
-                                    <p class="text-gray-400 text-sm italic">"Прирост до 354 л.с. и установка Яндекс.Навигатора."</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Case 2 -->
-                        <div class="swiper-slide">
-                            <div class="rounded-2xl overflow-hidden glass group">
-                                <div class="h-64 overflow-hidden">
-                                    <img src="./Фото работы/IMG_20260318_195954.png" alt="Genesis Russification" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
-                                </div>
-                                <div class="p-6">
-                                    <span class="text-neon text-xs font-bold uppercase tracking-widest mb-2 block">Русификация</span>
-                                    <h4 class="text-xl font-bold mb-2">Genesis GV80 (2022)</h4>
-                                    <p class="text-gray-400 text-sm italic">"Полный перевод ГУ и приборной панели на Русский язык."</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Case 3 -->
-                        <div class="swiper-slide">
-                            <div class="rounded-2xl overflow-hidden glass group">
-                                <div class="h-64 overflow-hidden">
-                                    <img src="./Фото работы/IMG_20260318_200000.png" alt="Kia Sorento Tuning" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
-                                </div>
-                                <div class="p-6">
-                                    <span class="text-neon text-xs font-bold uppercase tracking-widest mb-2 block">Чип-тюнинг</span>
-                                    <h4 class="text-xl font-bold mb-2">Kia Sorento 2.2 CRDi</h4>
-                                    <p class="text-gray-400 text-sm italic">"Удаление AdBlue и увеличение мощности до 240 л.с."</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Case 4: Exeed RX -->
-                        <div class="swiper-slide">
-                            <div class="rounded-2xl overflow-hidden glass group">
-                                <div class="h-64 overflow-hidden">
-                                    <img src="./Фото работы/exeed_rx.png" alt="Exeed RX Russification" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
-                                </div>
-                                <div class="p-6">
-                                    <span class="text-neon text-xs font-bold uppercase tracking-widest mb-2 block">Русификация + Apps</span>
-                                    <h4 class="text-xl font-bold mb-2">Exeed RX (2024)</h4>
-                                    <p class="text-gray-400 text-sm italic">"Яндекс Навигатор и YouTube на штатном экране за 1 час."</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Case 5: Geely Monjaro -->
-                        <div class="swiper-slide">
-                            <div class="rounded-2xl overflow-hidden glass group">
-                                <div class="h-64 overflow-hidden">
-                                    <img src="./Фото работы/geely_monjaro.png" alt="Geely Monjaro Stage 1" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
-                                </div>
-                                <div class="p-6">
-                                    <span class="text-neon text-xs font-bold uppercase tracking-widest mb-2 block">Stage 1 + Limit Off</span>
-                                    <h4 class="text-xl font-bold mb-2">Geely Monjaro</h4>
-                                    <p class="text-gray-400 text-sm italic">"Прибавка 42 л.с. и снятие лимита скорости для комфортных обгонов."</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Case 6: BMW X5 -->
-                        <div class="swiper-slide">
-                            <div class="rounded-2xl overflow-hidden glass group">
-                                <div class="h-64 overflow-hidden">
-                                    <img src="./Фото работы/bmw_x5.png" alt="BMW X5 AdBlue Removal" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
-                                </div>
-                                <div class="p-6">
-                                    <span class="text-neon text-xs font-bold uppercase tracking-widest mb-2 block">Удаление AdBlue</span>
-                                    <h4 class="text-xl font-bold mb-2">BMW X5 G05</h4>
-                                    <p class="text-gray-400 text-sm italic">"Программное отключение мочевины и чистка впуска."</p>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Case 7: Audi A6 -->
-                        <div class="swiper-slide">
-                            <div class="rounded-2xl overflow-hidden glass group">
-                                <div class="h-64 overflow-hidden">
-                                    <img src="./Фото работы/audi_a6.png" alt="Audi A6 Gearbox Tuning" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
-                                </div>
-                                <div class="p-6">
-                                    <span class="text-neon text-xs font-bold uppercase tracking-widest mb-2 block">Тюнинг КПП (TVS)</span>
-                                    <h4 class="text-xl font-bold mb-2">Audi A6 C8</h4>
-                                    <p class="text-gray-400 text-sm italic">"Оптимизация работы робота, плавное трогание и быстрое переключение."</p>
-                                </div>
-                            </div>
-                        </div>
+                    <div id="portfolio-wrapper" class="swiper-wrapper">
+                        <!-- Content will be injected by JS -->
                     </div>
                 </div>
                 <!-- Navigation -->
@@ -395,259 +358,16 @@
     <!-- Testimonials Section -->
     <section id="testimonials" class="py-24 bg-dark/50">
         <div class="container mx-auto px-4">
-            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center">Отзывы <span class="text-neon">клиентов</span></h2>
+            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center scroll-anim">Отзывы <span class="text-neon">клиентов</span></h2>
             <div class="relative px-12">
                 <div class="swiper">
-                    <div class="swiper-wrapper">
-                        <!-- Review 1 -->
-                        <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
-                                <div class="flex items-center gap-4 mb-6 self-start text-left">
-                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">А</div>
-                                    <div>
-                                        <h5 class="font-bold text-sm text-white author-name">Александр</h5>
-                                    </div>
-                                </div>
-                                <div class="flex-1 flex items-center justify-center py-4">
-                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
-                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Сделали Танк 500 под ключ: русификация и стейдж. Машина поехала совсем по-другому, интерфейс теперь радует глаз. Спасибо ребятам из Vtec Team!"</p>
-                                    </div>
-                                </div>
-                                <div class="mt-6 flex justify-center">
-                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
-                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
-                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Review 2 -->
-                        <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
-                                <div class="flex items-center gap-4 mb-6 self-start text-left">
-                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">Д</div>
-                                    <div>
-                                        <h5 class="font-bold text-sm text-white author-name">Дмитрий</h5>
-                                    </div>
-                                </div>
-                                <div class="flex-1 flex items-center justify-center py-4">
-                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
-                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Обращался за русификацией Genesis. Всё четко, быстро, за пару часов машина начала говорить по-русски. Рекомендую профессионалов."</p>
-                                    </div>
-                                </div>
-                                <div class="mt-6 flex justify-center">
-                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
-                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
-                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Review 3 -->
-                        <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
-                                <div class="flex items-center gap-4 mb-6 self-start text-left">
-                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">И</div>
-                                    <div>
-                                        <h5 class="font-bold text-sm text-white author-name">Игорь</h5>
-                                    </div>
-                                </div>
-                                <div class="flex-1 flex items-center justify-center py-4">
-                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
-                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Удаляли катализатор и шили под евро-2 на Киа Соренто. Ошибка пропала, расход упал. Мастера знают своё дело. Очень доволен результатом."</p>
-                                    </div>
-                                </div>
-                                <div class="mt-6 flex justify-center">
-                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
-                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
-                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Review 4 -->
-                        <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
-                                <div class="flex items-center gap-4 mb-6 self-start text-left">
-                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">М</div>
-                                    <div>
-                                        <h5 class="font-bold text-sm text-white author-name">Максим</h5>
-                                    </div>
-                                </div>
-                                <div class="flex-1 flex items-center justify-center py-4">
-                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
-                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Сделали прошивку и русификацию. Машина поехала, как должна была with завода."</p>
-                                    </div>
-                                </div>
-                                <div class="mt-6 flex justify-center">
-                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
-                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
-                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Review 5 -->
-                        <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
-                                <div class="flex items-center gap-4 mb-6 self-start text-left">
-                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">С</div>
-                                    <div>
-                                        <h5 class="font-bold text-sm text-white author-name">Сергей</h5>
-                                    </div>
-                                </div>
-                                <div class="flex-1 flex items-center justify-center py-4">
-                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
-                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Ставил приложения, теперь в пробках не скучно. Всё работает четко."</p>
-                                    </div>
-                                </div>
-                                <div class="mt-6 flex justify-center">
-                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
-                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
-                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Review 6 -->
-                        <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
-                                <div class="flex items-center gap-4 mb-6 self-start text-left">
-                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">Е</div>
-                                    <div>
-                                        <h5 class="font-bold text-sm text-white author-name">Елена</h5>
-                                    </div>
-                                </div>
-                                <div class="flex-1 flex items-center justify-center py-4">
-                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
-                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Удаляли катализатор. Машина стала тише, расход упал. Очень довольна."</p>
-                                    </div>
-                                </div>
-                                <div class="mt-6 flex justify-center">
-                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
-                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
-                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Review 7 -->
-                        <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
-                                <div class="flex items-center gap-4 mb-6 self-start text-left">
-                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">А</div>
-                                    <div>
-                                        <h5 class="font-bold text-sm text-white author-name">Артем</h5>
-                                    </div>
-                                </div>
-                                <div class="flex-1 flex items-center justify-center py-4">
-                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
-                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Чиповал дизель, Stage 1. Разница колоссальная, особенно на трассе."</p>
-                                    </div>
-                                </div>
-                                <div class="mt-6 flex justify-center">
-                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
-                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
-                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Review 8 -->
-                        <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
-                                <div class="flex items-center gap-4 mb-6 self-start text-left">
-                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">В</div>
-                                    <div>
-                                        <h5 class="font-bold text-sm text-white author-name">Владимир</h5>
-                                    </div>
-                                </div>
-                                <div class="flex-1 flex items-center justify-center py-4">
-                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
-                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Отключали мочевину. Всё быстро, аккуратно, цена адекватная."</p>
-                                    </div>
-                                </div>
-                                <div class="mt-6 flex justify-center">
-                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
-                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
-                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Review 9 -->
-                        <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
-                                <div class="flex items-center gap-4 mb-6 self-start text-left">
-                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">Д</div>
-                                    <div>
-                                        <h5 class="font-bold text-sm text-white author-name">Денис</h5>
-                                    </div>
-                                </div>
-                                <div class="flex-1 flex items-center justify-center py-4">
-                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
-                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Русификация ШГУ. Теперь всё по-человечески, приложения летают."</p>
-                                    </div>
-                                </div>
-                                <div class="mt-6 flex justify-center">
-                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
-                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
-                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Review 10 -->
-                        <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
-                                <div class="flex items-center gap-4 mb-6 self-start text-left">
-                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">О</div>
-                                    <div>
-                                        <h5 class="font-bold text-sm text-white author-name">Олег</h5>
-                                    </div>
-                                </div>
-                                <div class="flex-1 flex items-center justify-center py-4">
-                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
-                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Делали русификацию и обновление карт. Профессиональный подход."</p>
-                                    </div>
-                                </div>
-                                <div class="mt-6 flex justify-center">
-                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
-                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
-                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Review 11 -->
-                        <div class="swiper-slide h-auto flex flex-col">
-                            <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
-                                <div class="flex items-center gap-4 mb-6 self-start text-left">
-                                    <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">К</div>
-                                    <div>
-                                        <h5 class="font-bold text-sm text-white author-name">Кирилл</h5>
-                                    </div>
-                                </div>
-                                <div class="flex-1 flex items-center justify-center py-4">
-                                    <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
-                                        <p class="review-body text-white italic text-sm leading-relaxed text-center">"Прошили под Stage 1. Ушла задумчивость педали газа. Одно удовольствие."</p>
-                                    </div>
-                                </div>
-                                <div class="mt-6 flex justify-center">
-                                    <button class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
-                                        <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
-                                        <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+                    <div id="testimonials-wrapper" class="swiper-wrapper">
+                        <!-- Reviews injected by JS -->
                     </div>
                 </div>
                 <!-- Navigation -->
                 <div class="swiper-button-next"></div>
                 <div class="swiper-button-prev"></div>
-                <!-- Pagination -->
-                <div class="swiper-pagination"></div>
             </div>
         </div>
     </section>
@@ -655,11 +375,11 @@
     <!-- FAQ Section -->
     <section class="py-24 bg-dark">
         <div class="container mx-auto px-4 max-w-[850px]">
-            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center">Частые <span class="text-neon">вопросы</span></h2>
+            <h2 class="text-4xl md:text-5xl font-black mb-16 text-center scroll-anim">Частые <span class="text-neon">вопросы</span></h2>
             
             <div class="space-y-4">
                 <!-- FAQ 1: Безопасность -->
-                <div class="accordion-item">
+                <div class="accordion-item scroll-anim">
                     <div class="faq-item rounded-2xl overflow-hidden">
                         <button class="w-full faq-question flex items-center justify-between font-black text-xl tracking-tight text-white" onclick="toggleAccordion(this)">
                             Безопасно ли это для двигателя?
@@ -673,7 +393,7 @@
                     </div>
                 </div>
                 <!-- FAQ 2: Катализатор -->
-                <div class="accordion-item">
+                <div class="accordion-item scroll-anim">
                     <div class="faq-item rounded-2xl overflow-hidden">
                         <button class="w-full faq-question flex items-center justify-between font-black text-xl tracking-tight text-white" onclick="toggleAccordion(this)">
                             Будут ли ошибки после удаления катализатора?
@@ -687,7 +407,7 @@
                     </div>
                 </div>
                 <!-- FAQ 3: Сроки -->
-                <div class="accordion-item">
+                <div class="accordion-item scroll-anim">
                     <div class="faq-item rounded-2xl overflow-hidden">
                         <button class="w-full faq-question flex items-center justify-between font-black text-xl tracking-tight text-white" onclick="toggleAccordion(this)">
                             Сколько времени занимают работы?
@@ -701,7 +421,7 @@
                     </div>
                 </div>
                 <!-- FAQ 4: Расход -->
-                <div class="accordion-item">
+                <div class="accordion-item scroll-anim">
                     <div class="faq-item rounded-2xl overflow-hidden">
                         <button class="w-full faq-question flex items-center justify-between font-black text-xl tracking-tight text-white" onclick="toggleAccordion(this)">
                             Увеличится ли расход топлива?
@@ -715,7 +435,7 @@
                     </div>
                 </div>
                 <!-- FAQ 5: Откат -->
-                <div class="accordion-item">
+                <div class="accordion-item scroll-anim">
                     <div class="faq-item rounded-2xl overflow-hidden">
                         <button class="w-full faq-question flex items-center justify-between font-black text-xl tracking-tight text-white" onclick="toggleAccordion(this)">
                             Можно ли вернуть всё как было?
@@ -729,7 +449,7 @@
                     </div>
                 </div>
                 <!-- FAQ 6: Запись -->
-                <div class="accordion-item">
+                <div class="accordion-item scroll-anim">
                     <div class="faq-item rounded-2xl overflow-hidden">
                         <button class="w-full faq-question flex items-center justify-between font-black text-xl tracking-tight text-white" onclick="toggleAccordion(this)">
                             Как записаться и как всё проходит?
@@ -810,9 +530,9 @@
 
     <!-- Modals -->
     <!-- Power Check Modal -->
-    <div id="power-modal" class="modal">
+    <div id="power-modal" class="modal" role="dialog" aria-modal="true">
         <div class="glass p-8 rounded-3xl w-full max-w-md mx-4 relative">
-            <button onclick="closeModal('power-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+            <button aria-label="Закрыть" onclick="closeModal('power-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-white">
                 <i data-lucide="x"></i>
             </button>
             <h3 class="text-2xl font-black mb-6 text-neon uppercase italic">Узнать мощность</h3>
@@ -823,7 +543,7 @@
                 </div>
                 <div>
                     <label class="block text-xs uppercase tracking-widest text-gray-500 mb-1">Телефон</label>
-                    <input type="tel" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-neon outline-none text-white transition-all" placeholder="+7 (___) ___-__-__">
+                    <input type="tel" class="phone-mask-input w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-neon outline-none text-white transition-all" placeholder="+7 (___) ___-__-__" maxlength="18">
                 </div>
                 <div class="grid grid-cols-2 gap-4">
                     <div>
@@ -843,13 +563,13 @@
     </div>
 
     <!-- General Inquiry Modal -->
-    <div id="general-modal" class="modal">
+    <div id="general-modal" class="modal" role="dialog" aria-modal="true">
         <div class="glass p-8 rounded-3xl w-full max-w-md mx-4 relative">
-            <button onclick="closeModal('general-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-white">
+            <button aria-label="Закрыть" onclick="closeModal('general-modal')" class="absolute top-4 right-4 text-gray-400 hover:text-white">
                 <i data-lucide="x"></i>
             </button>
             <h3 class="text-2xl font-black mb-2 text-neon uppercase italic" id="modal-title">Запись на услугу</h3>
-            <p class="text-gray-400 mb-6 text-sm" id="modal-subtitle">Оставьте заявку, и мы перезвоним в течение 5 минут.</p>
+            <p class="text-gray-400 mb-6 text-sm" id="modal-subtitle">Оставьте заявку, и мы вам перезвоним.</p>
             <form class="space-y-4">
                 <input type="hidden" id="service-field">
                 <div>
@@ -858,7 +578,7 @@
                 </div>
                 <div>
                     <label class="block text-xs uppercase tracking-widest text-gray-500 mb-1">Телефон</label>
-                    <input type="tel" class="w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-neon outline-none text-white transition-all" placeholder="+7 (___) ___-__-__">
+                    <input type="tel" class="phone-mask-input w-full bg-white/5 border border-white/10 rounded-xl px-4 py-3 focus:border-neon outline-none text-white transition-all" placeholder="+7 (___) ___-__-__" maxlength="18">
                 </div>
                 <button type="submit" class="w-full bg-neon text-dark font-black py-4 rounded-xl mt-4 hover:shadow-[0_0_20px_rgba(0,242,255,0.4)] transition-all">
                     ЗАПИСАТЬСЯ
@@ -867,9 +587,9 @@
         </div>
     </div>
     <!-- Review Detail Modal -->
-    <div id="review-modal" class="modal">
+    <div id="review-modal" class="modal" role="dialog" aria-modal="true">
         <div class="glass p-8 md:p-10 rounded-[2rem] w-full max-w-lg mx-4 relative border border-neon/20 shadow-[0_0_50px_rgba(0,242,255,0.1)]">
-            <button onclick="closeReviewModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors">
+            <button aria-label="Закрыть" onclick="closeReviewModal()" class="absolute top-6 right-6 text-gray-400 hover:text-white transition-colors">
                 <i data-lucide="x" class="w-6 h-6"></i>
             </button>
             
@@ -882,7 +602,7 @@
 
             <div class="relative">
                 <div class="absolute -top-4 -left-2 text-6xl text-neon/10 font-serif">“</div>
-                <div id="modal-review-body" class="text-gray-300 italic leading-relaxed text-lg custom-scrollbar-minimal max-h-[60vh] overflow-y-auto pr-2">
+                <div id="modal-review-body" class="text-gray-300 italic leading-relaxed text-lg custom-scrollbar-minimal h-48 overflow-y-auto pr-2">
                     <!-- Review text will be injected here -->
                 </div>
                 <div class="absolute -bottom-8 -right-2 text-6xl text-neon/10 font-serif transition-transform rotate-180">“</div>
@@ -907,6 +627,40 @@
                     СМОТРЕТЬ ОТЗЫВ В КАРТАХ
                 </a>
             </div>
+        </div>
+    </div>
+
+    <!-- Portfolio Gallery Modal -->
+    <div id="portfolio-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4" role="dialog" aria-modal="true">
+        <div class="absolute inset-0 bg-dark/95 backdrop-blur-xl" onclick="closePortfolioModal()"></div>
+        <div class="w-full max-w-5xl relative z-10 glass rounded-[2rem] p-4 md:p-8 overflow-hidden flex flex-col items-center border border-neon/20 shadow-[0_0_50px_rgba(0,242,255,0.1)]">
+            <button aria-label="Закрыть" onclick="closePortfolioModal()" class="absolute top-4 right-4 md:top-6 md:right-6 text-gray-400 hover:text-white transition-colors z-[110]">
+                <i data-lucide="x" class="w-8 h-8"></i>
+            </button>
+            <h3 id="portfolio-modal-title" class="text-2xl font-black text-white uppercase italic tracking-tighter mb-6 self-start px-4"></h3>
+            
+            <div class="relative w-full max-w-4xl">
+                <div id="portfolio-gallery-swiper" class="swiper overflow-hidden rounded-2xl w-full">
+                    <div class="swiper-wrapper">
+                        <!-- Images injected by JS -->
+                    </div>
+                </div>
+                <div class="swiper-button-next portfolio-gallery-next !text-neon"></div>
+                <div class="swiper-button-prev portfolio-gallery-prev !text-neon"></div>
+                <div class="swiper-pagination portfolio-gallery-pagination mt-4 !bottom-[-30px]"></div>
+            </div>
+            <div class="h-8 w-full"></div>
+        </div>
+    </div>
+
+    <!-- Success Notification Overlay -->
+    <div id="success-notification" class="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-dark/90 backdrop-blur-md opacity-0 scale-95 transition-all duration-300 pointer-events-none">
+        <div class="glass p-10 rounded-[2rem] flex flex-col items-center text-center border border-neon/30 shadow-[0_0_50px_rgba(0,242,255,0.2)]">
+            <div class="w-20 h-20 rounded-full bg-neon/10 flex items-center justify-center mb-6">
+                <i data-lucide="check-circle-2" class="w-10 h-10 text-neon"></i>
+            </div>
+            <h3 class="text-3xl font-black text-white uppercase italic tracking-tighter mb-2">Заявка отправлена</h3>
+            <p class="text-gray-400 font-medium max-w-xs">Спасибо! Мы свяжемся с вами в ближайшее время для подтверждения деталей.</p>
         </div>
     </div>
     
@@ -978,13 +732,51 @@
             }
         }
 
-        // Form Submission (Simulated)
+        // Form Validation & Success Logic
+        function showSuccessNotification() {
+            const successNotif = document.getElementById('success-notification');
+            successNotif.classList.add('active');
+            lucide.createIcons();
+            
+            setTimeout(() => {
+                successNotif.classList.remove('active');
+            }, 3000);
+        }
+
         document.querySelectorAll('form').forEach(form => {
             form.addEventListener('submit', (e) => {
                 e.preventDefault();
-                alert('Спасибо! Ваша заявка принята. Мы свяжемся с вами в ближайшее время.');
-                closeModal('power-modal');
-                closeModal('general-modal');
+                let hasErrors = false;
+                
+                form.querySelectorAll('input').forEach(input => {
+                    input.classList.remove('error-shake');
+                    input.addEventListener('input', () => input.classList.remove('error-shake'), {once: true});
+                });
+                
+                form.querySelectorAll('input:not([type="hidden"])').forEach(input => {
+                    let val = input.value.trim();
+                    if (!val) {
+                        hasErrors = true;
+                        input.classList.add('error-shake');
+                    } else if (input.classList.contains('phone-mask-input')) {
+                        let rawDigits = val.replace(/\D/g, '');
+                        if (rawDigits.length !== 11) {
+                            hasErrors = true;
+                            input.classList.add('error-shake');
+                        }
+                    }
+                });
+                
+                if (hasErrors) return;
+                
+                // Close modals automatically
+                document.querySelectorAll('.modal').forEach(m => m.classList.remove('active'));
+                
+                // Show Success Notification slightly after close animation bounds
+                setTimeout(() => {
+                    showSuccessNotification();
+                    form.reset();
+                }, 300);
             });
         });
 
@@ -1052,54 +844,143 @@
 
         function openServiceDetails(serviceId) {
             const data = servicesData[serviceId];
-            const modal = document.getElementById('service-details-modal');
+            const panel = document.getElementById('service-details-panel');
+            const backdrop = document.getElementById('service-details-backdrop');
             const content = document.getElementById('service-details-content');
             
             content.innerHTML = `
-                <div class="flex flex-col items-center text-center">
-                    <div class="w-20 h-20 bg-neon/10 rounded-2xl flex items-center justify-center mb-8">
-                        <i data-lucide="${data.icon}" class="w-10 h-10 text-neon"></i>
+                <div class="flex flex-col items-center text-center h-full">
+                    <div class="w-14 h-14 bg-neon/10 rounded-2xl flex items-center justify-center mb-4">
+                        <i data-lucide="${data.icon}" class="w-7 h-7 text-neon"></i>
                     </div>
-                    <h2 class="text-3xl font-black mb-4 text-white uppercase italic tracking-tighter">${data.title}</h2>
-                    <p class="text-gray-400 mb-10 max-w-xl text-lg">${data.description}</p>
+                    <h2 class="text-2xl font-black mb-2 text-white uppercase italic tracking-tighter">${data.title}</h2>
+                    <p class="text-gray-400 mb-5 max-w-xl text-base">${data.description}</p>
                     
-                    <div class="w-full bg-white/5 rounded-3xl p-8 mb-10 border border-white/5">
+                    <div class="w-full bg-white/5 rounded-2xl p-6 md:p-8 mb-8 border border-white/5 shadow-lg">
                         <ul class="space-y-4 text-left">
                             ${data.features.map(feature => `
                                 <li class="flex items-start gap-4">
                                     <i data-lucide="check" class="text-neon w-6 h-6 mt-0.5 flex-shrink-0"></i>
-                                    <span class="text-gray-200 font-medium">${feature}</span>
+                                    <span class="text-gray-200 font-medium text-base leading-relaxed">${feature}</span>
                                 </li>
                             `).join('')}
                         </ul>
                     </div>
                     
-                    <button onclick="closeServiceDetails(); openModal('general-modal', '${data.title}')" class="w-full bg-neon text-dark py-5 rounded-2xl font-black text-xl hover:shadow-[0_0_40px_rgba(0,242,255,0.4)] hover:scale-[1.02] transition-all uppercase tracking-wider">
-                        Оставить заявку
-                    </button>
+                    <div class="mt-auto w-full pt-4">
+                        <button onclick="closeServiceDetails(); setTimeout(() => openModal('general-modal', '${data.title}'), 300);" class="w-full bg-neon text-dark py-4 rounded-2xl font-black text-lg hover:shadow-[0_0_40px_rgba(0,242,255,0.4)] hover:scale-[1.02] transition-all uppercase tracking-wider">
+                            Оставить заявку
+                        </button>
+                    </div>
                 </div>
             `;
             
-            modal.style.display = 'flex';
             lucide.createIcons();
             document.body.style.overflow = 'hidden';
+            
+            backdrop.classList.remove('hidden');
+            requestAnimationFrame(() => {
+                backdrop.classList.remove('opacity-0');
+                backdrop.classList.add('opacity-100');
+                panel.classList.remove('translate-x-full');
+                panel.classList.add('translate-x-0');
+            });
         }
 
         function closeServiceDetails() {
-            const modal = document.getElementById('service-details-modal');
-            modal.style.display = 'none';
+            const panel = document.getElementById('service-details-panel');
+            const backdrop = document.getElementById('service-details-backdrop');
+            
             document.body.style.overflow = 'auto';
+            
+            backdrop.classList.remove('opacity-100');
+            backdrop.classList.add('opacity-0');
+            panel.classList.remove('translate-x-0');
+            panel.classList.add('translate-x-full');
+            
+            setTimeout(() => {
+                backdrop.classList.add('hidden');
+                document.getElementById('service-details-content').innerHTML = '';
+            }, 300);
         }
 
-        function openReviewModal(reviewData) {
+        const reviewsData = [
+    { id: 1, name: "Алексей М.", car: "BMW 320 / Infinity", text: `Прошиваю в этом месте уже третью машину Лансер, Инфинити q70 и бмв 320. Отличный мастер, от проделанной работы, в восторге Рекомендую!` },
+    { id: 2, name: "copchick", car: "Тюнинг", text: `Ашот мастер своего дела! Все бы так любили и понимали свою работу!` },
+    { id: 3, name: "EOSContent", car: "Honda Civic", text: `Мастер всё объяснил, рассказал, ответил на вопросы и даже порекомендовал как исправить некоторые нюансы! Человек знает своё дело! Спасибо за прошивку моей Honda Civic VIII 4D! Рекомендую всем обращаться к этому человеку!` },
+    { id: 4, name: "Артем Рамазанов", car: "Tank 500", text: `Спасибо Ашоту за работу,все рассказал ,показал .Сделал чип тюнинг Tank 500(машина полетела).Я доволен результатом` },
+    { id: 5, name: "вера лю", car: "Русификация", text: `Спасибо большое Ашоту за русификацию автомобиля,всё сделано быстро ,навигация ,мультимедиа всё отлично .диагностику сделал в подарок 👍🏻` },
+    { id: 6, name: "zxchild99", car: "Чип-тюнинг", text: `Супер место для прошивки авто, рекомендую Ашот - специалист высшего разряда` },
+    { id: 7, name: "Автодом Сервис", car: "Сервис", text: `Ашот мастер своего дела! Сначала все объяснил показал, потом приступил к работе и сделал все в лучшем виде! Спасибо тебе за четкую работу!` },
+    { id: 8, name: "Сергей П.", car: "Прошивка", text: `Спасибо большое! Всё сделали быстро, чётко, профессионально! (Прошивка авто) Рекомендую 100%` },
+    { id: 9, name: "Максим Максим", car: "Honda Accord", text: `Установка пламегаситель и прошивка. Accord поехал бодро!!! После прошивки заработал круиз контроль. После смены блока ЭБУ затопил, около 2 лет он не работал . Спасибо ребятам за работу!!!` },
+    { id: 10, name: "Иван", car: "Чип-тюнинг", text: `Порекомендовали Ашота, удалить ошибки и прошить машину чтоб ехала пошустрее. Созвонился , договорился приехал . На все ушло примерно минут 30. Результатом очень доволен .` },
+    { id: 11, name: "Степан Т.", car: "Тюнинг", text: `Спасибо большое Ашоту за прошивку , хоть и не было готового варианта под мою модификацию все решили в кратчайшие сроки Скорректировали и прошили Результатом доволен Динамика безусловно улучшилась Отклики педаль шикарен Расход в городе и по трассе упал в разы в спокойном режиме )` },
+    { id: 12, name: "ВладАкура", car: "Acura", text: `Лучший автосервис.... рекомендую. Всегда помогут с ремонтом и запчастями.` },
+    { id: 13, name: "ГРИГОРИЙ", car: "Сервис", text: `Отличное место , квалифицированный персонал , всегда вежливо и дружелюбно разговаривают , помогают с любым вопросом , рекомендую 🔥👍🏻ремонт и ТО всегда на высшем уровне` },
+    { id: 14, name: "Денис Дьячков", car: "Тюнинг", text: `Прекрасные ребята, всё сделали чётко и быстро!` },
+    { id: 15, name: "Елизавета", car: "Выхлопная система", text: `Прошивали машину после удаления катализатора, также переваривали части выхлопной системы. Быстро и недорого. Все отлично, спасибо!` },
+    { id: 16, name: "Алексей Мащенко", car: "Peugeot / Чип-тюнинг", text: `Всем категорическое ЗДРАСТИ! Вот как-то я эту тему обсасывал с момента покупки… Очень многие говорили, что смысла искать чип нет. Не поедет она… И вот как то одним днем все решилось. Друг на работе посоветовал контору… Позвонил, узнал что можно, цену и начал думать… Думал полчаса))). Ну потому как и деньги и время (ехать то на другой конец губернии))) были, перезвонил. Договорились. И вот Лягушку чпокнули))). Что получили… Улучшение динамики (педалька стала прям послушной) Разгон на низах хороший. В общем пушки-гонки канеш не получилось (чего я и не ждал), но результатом доволен на 100%. Как будто машина легче кило на 200 стала… Ашот, спасибо огромное!` },
+    { id: 17, name: "Дмитрий", car: "Сервис", text: `Оч приятный мастер приемщик Ашот. Доходчиво все объяснил. Сказано-сделано! Приятно !` },
+    { id: 18, name: "Сурен Мовсисян", car: "Электрика", text: `Менеджер и все мастера очень вежливые , знающие толк своего дела . Ашот очень добропорядочный и ответственный мастер , который делает свое дело на высшем уровне, электрик Володя очень толковый мастер своего дела, всегда ищут и находят выход , Казалось безнадежный , но они всегда идут на встречу и пока не починят проблему не отпустят. Не пожалел , что попал именно в этот прекрасный сервис, я спокоен за надежность и качество работы именно этих мастеров .` },
+    { id: 19, name: "Сергей Титов", car: "Выхлоп", text: `Обращался по удалению катализатора. Сделали всё быстро и довольно качественно, катализатор вернули. Довольно широкий спектр услуг. Советую)` },
+    { id: 20, name: "Alexander Antonov", car: "Тюнинг", text: `Быстро,, грамотно, результат соответствует ожиданиям, время ожидания 0 минут, процедура заняла 40 минут, ожидал в приемной, оплатил картой, получил консультацию по всем возникшим вопросам` },
+    { id: 21, name: "nazarspeed", car: "Honda Civic", text: `Сделал чип на цивку, все ок. 15 мин. -6к.` },
+    { id: 22, name: "Artem S.", car: "Peugeot Expert", text: `Ребята отличные. Всё по записи, чётко по времени. Обращался с удалением егр и сажевого плюс чип ( пыжик эксперт2). По времени сказали 4 часа, но в итоге сработали за 3 часа. Работой доволен, машинка отлично едет. Ребята спасибо большое!` },
+    { id: 23, name: "Динислам Буршуев", car: "Honda Accord 8", text: `Делал прошивку на аккорд 8, после прошивки машина едить как будто вагон с углом отцепился. СОВЕТУЮ!!!` },
+    { id: 24, name: "ernest0608", car: "Renault Trafic", text: `Прошил Рено трафик, ребята все отлично сделали я доволен. Спасибо и по больше вам адекватных клиентов` },
+    { id: 25, name: "Fil", car: "Haval H6", text: `По записи приехал на чип-тюнинг автомобиля хавал н6. Была проблема с турбоямой,плохим реагированием педали газа. Дёрганье при разгоне на 1-2 передачах. После прошивки машина стала по сравнению с тем что было ,самолёт. Проблемы ушли. Ровный разгон, педаль газа моментально реагирует на нажатие. Раньше для обгона при скорости 100км/ч приходилось с 6й передачи переходить на 5ю. Теперь не нужно. Разгон хороший. Ускорение приличное. Не болид но очень прилично. Мне все нравиться. Спасибо мастеру.` },
+    { id: 26, name: "Николай Савельев", car: "Спецпроект", text: `Прочитав отзывы, обратился в этот сервис. Задача стояла не просто "чипануть, прошить" машину. В моем случае, нужно было срастить мозги от двух разных моделей машин в одни и чтобы всё это работало как с завода. Мало людей, кто сможет с этим справится. 95 % обзвоненных "чиптюнеров" Москвы и области даже не знали как это сделать. Но Ашот выполнил такой объем работы в обговоренный срок, качественно и за адекватный ценник. Считаю его профессионалом своего дела.` },
+    { id: 27, name: "Александр", car: "Genesis G70", text: `Приезжал в сервис 25 февраля. После удаления катализатора стал загораться чек. Механическая обманка не помогла и встал вопрос отключения второй лямбды. После консультации стало понятно, что требуется прошивка под Евро2. Пришли к выводу, что было бы не плохо добавить моему коню лошадок и момента. Время работы заняло четыре с половиной часа. В моем Geneses G70 лошадей и так хватало, но после того как Ашот с ним поколдовал машину стало не узнать. Я с первых минут почувствовал более четкий отклик на педаль газа, уменьшение турбоямы и более резвый подхват на средних оборотах. Результатом я полностью доволен.` },
+    { id: 28, name: "Александр (Camry)", car: "Toyota Camry", text: `Сегодня приезжал к Ашоту снова на тойоте камри. Прошили ее и отключили датчик EGR. Авто как бы посвежело, тяга на средних оборотах явно стала лучше и с самых низов прием стал шустрее. Спасибо мастеру. Как всегда на высоте.` },
+    { id: 29, name: "Александр Р.", car: "Honda CR-V", text: `Делал у Ашота чип тюнинг Honda CR-V под евро-2. Прошивается быстро 10-15 минут, машина объективно стала ехать резвее. Спасибо!!! Стоимость не прям дешево, но в рынке.` },
+    { id: 30, name: "Азамат Шакиров", car: "Chery M11", text: `Прошили авто чери м 11 стал резвее, советую👌` },
+    { id: 31, name: "Sasha GHOST", car: "Honda Accord", text: `Парни, красавчики! Не знаю как остальные, но мой аккорд без них уже развалился бы на части!` },
+    { id: 32, name: "Mladen P.", car: "Acura MDX", text: `Делал на Акуре мдх 2014 прошивочку у Ашота, 1 stage , все до сих пор прекрасно) результатом доволен более чем, вот хочу еще что-нибудь сделать))` },
+    { id: 33, name: "Олег", car: "Hyundai i30", text: `Первый раз обратился в данный автосервис в 2017. На hyundai i30 умер катализатор и встал вопрос установки пламягасителя. Прошло 3 года, не малейшего намека на сожаление. Но, обратиться пришлось на днях ещё раз, в другом автосервисе пришлось заменить гофру глушителя. Через 2 месяца гофра стала пропускать как старая. Позвонил Ашоту, после снятия гофры мне подробно рассказали и показали, почему так произошло. Главное другое, что редко встречается в подобных автосервисах, это человеческое отношение всего персонала к своей деятельности и клиентам. Ашот, твоей команде огромное спасибо!!!` }
+];
+
+        function renderReviews() {
+            const wrapper = document.getElementById('testimonials-wrapper');
+            if (!wrapper) return;
+            
+            wrapper.innerHTML = reviewsData.map(review => `
+                <div class="swiper-slide h-auto flex flex-col">
+                    <div class="bubble glass rounded-3xl p-8 flex flex-col h-full group relative transition-all duration-300">
+                        <div class="flex items-center gap-4 mb-6 self-start text-left">
+                            <div class="w-10 h-10 rounded-full bg-neon/20 flex items-center justify-center text-neon font-bold text-sm">${review.name.charAt(0).toUpperCase()}</div>
+                            <div>
+                                <h5 class="font-bold text-sm text-white author-name">${review.name}</h5>
+                                <span class="text-xs text-neon opacity-80 block mt-0.5">${review.car}</span>
+                            </div>
+                        </div>
+                        <div class="flex-1 flex items-center justify-center py-4">
+                            <div class="review-body-container h-24 overflow-hidden relative" style="-webkit-mask-image: linear-gradient(180deg, #000 60%, transparent 100%); mask-image: linear-gradient(180deg, #000 60%, transparent 100%);">
+                                <p class="review-body text-white italic text-sm leading-relaxed text-center">"${review.text}"</p>
+                            </div>
+                        </div>
+                        <div class="mt-6 flex justify-center">
+                            <button onclick="openReviewModal(${review.id})" class="read-more-btn text-white/80 font-bold uppercase tracking-widest text-[10px] hover:scale-110 hover:text-[#00e1ff] transition-all duration-300 flex flex-col items-center gap-1 group/btn">
+                                <span>ЧИТАТЬ ПОЛНОСТЬЮ</span>
+                                <i data-lucide="chevron-down" class="w-4 h-4 opacity-50 group-hover/btn:translate-y-0.5 transition-transform"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            lucide.createIcons();
+        }
+
+        function openReviewModal(id) {
+            const reviewData = reviewsData.find(r => r.id === id);
+            if (!reviewData) return;
+            
             const modal = document.getElementById('review-modal');
             
-            // Clean author name: remove "(Car Model)" part if present
-            const cleanName = reviewData.author.replace(/\s*\(.*?\)\s*/g, '').trim();
-            
-            document.getElementById('modal-review-author').innerText = cleanName;
-            document.getElementById('modal-review-body').innerText = reviewData.body;
-            document.getElementById('modal-review-avatar').innerText = cleanName.charAt(0);
+            document.getElementById('modal-review-author').innerText = reviewData.name;
+            document.getElementById('modal-review-body').innerText = reviewData.text;
+            document.getElementById('modal-review-avatar').innerText = reviewData.name.charAt(0).toUpperCase();
             
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
@@ -1112,11 +993,90 @@
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
         }
+
+        const portfolioData = [
+            { id: 'multimedia-tank', category: 'Обновление мультимедиа', title: 'Tank 500', thumb: './Фото работы/Обновление мультимедиа/tank1.webp', gallery: ['./Фото работы/Обновление мультимедиа/tank1.webp', './Фото работы/Обновление мультимедиа/tank2.webp', './Фото работы/Обновление мультимедиа/tank3.webp', './Фото работы/Обновление мультимедиа/tank4.webp', './Фото работы/Обновление мультимедиа/tank5.webp'] },
+            { id: 'chip-tank', category: 'Чип-тюнинг', title: 'Tank 500', thumb: './Фото работы/Чип-тюнинг/tank1.webp', gallery: ['./Фото работы/Чип-тюнинг/tank1.webp'] },
+            { id: 'rus-genesis', category: 'Русификация', title: 'Genesis GV80', thumb: './Фото работы/русификация_kia/genesis1.webp', gallery: ['./Фото работы/русификация_kia/genesis1.webp', './Фото работы/русификация_kia/genesis2.webp', './Фото работы/русификация_kia/genesis3.webp'] },
+            { id: 'rus-hyundai', category: 'Русификация', title: 'Hyundai Palisade', thumb: './Фото работы/русификация_kia/hyundai1.webp', gallery: ['./Фото работы/русификация_kia/hyundai1.webp', './Фото работы/русификация_kia/hyundai2.webp', './Фото работы/русификация_kia/hyundai3.webp', './Фото работы/русификация_kia/hyundai4.webp'] },
+            { id: 'rus-kia', category: 'Русификация', title: 'Kia Sorento', thumb: './Фото работы/русификация_kia/kia1.webp', gallery: ['./Фото работы/русификация_kia/kia1.webp', './Фото работы/русификация_kia/kia2.webp', './Фото работы/русификация_kia/kia3.webp', './Фото работы/русификация_kia/kia4.webp', './Фото работы/русификация_kia/kia5.webp'] }
+        ];
+
+        function renderPortfolio() {
+            const wrapper = document.getElementById('portfolio-wrapper');
+            if (!wrapper) return;
+            
+            wrapper.innerHTML = portfolioData.map(item => `
+                <div class="swiper-slide cursor-pointer" onclick="openPortfolioModal('${item.id}')">
+                    <div class="rounded-2xl overflow-hidden glass group h-full flex flex-col relative">
+                        <div class="h-64 overflow-hidden relative">
+                            <img src="${item.thumb}" alt="${item.title}" loading="lazy" class="w-full h-full object-cover group-hover:scale-110 transition-transform">
+                            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                                <i data-lucide="zoom-in" class="w-10 h-10 text-white"></i>
+                            </div>
+                        </div>
+                        <div class="p-6 flex-1">
+                            <span class="text-neon text-xs font-bold uppercase tracking-widest mb-2 block">${item.category}</span>
+                            <h4 class="text-xl font-bold mb-2">${item.title}</h4>
+                            ${item.description ? `<p class="text-gray-400 text-sm italic">${item.description}</p>` : ''}
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+            
+            lucide.createIcons();
+        }
+
+        let portfolioGallerySwiper = null;
+
+        function openPortfolioModal(id) {
+            const item = portfolioData.find(p => p.id === id);
+            if (!item) return;
+            
+            document.getElementById('portfolio-modal-title').innerText = item.title;
+            const galleryWrapper = document.querySelector('#portfolio-gallery-swiper .swiper-wrapper');
+            
+            galleryWrapper.innerHTML = item.gallery.map(img => `
+                <div class="swiper-slide flex items-center justify-center bg-black/50 rounded-2xl overflow-hidden" style="height: 60vh;">
+                    <img src="${img}" alt="${item.category} ${item.title}" loading="lazy" class="w-full h-[300px] md:h-[500px] object-contain rounded-xl bg-black/20">
+                </div>
+            `).join('');
+            
+            const modal = document.getElementById('portfolio-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+            document.body.style.overflow = 'hidden';
+            
+            if (portfolioGallerySwiper) {
+                portfolioGallerySwiper.destroy(true, true);
+            }
+            
+            portfolioGallerySwiper = new Swiper('#portfolio-gallery-swiper', {
+                slidesPerView: 1,
+                spaceBetween: 20,
+                navigation: {
+                    nextEl: '.portfolio-gallery-next',
+                    prevEl: '.portfolio-gallery-prev',
+                },
+                pagination: {
+                    el: '.portfolio-gallery-pagination',
+                    clickable: true,
+                }
+            });
+        }
+
+        function closePortfolioModal() {
+            const modal = document.getElementById('portfolio-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
     </script>
     <!-- Swiper JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            renderPortfolio();
             new Swiper('#portfolio .swiper', {
                 slidesPerView: 1,
                 spaceBetween: 30,
@@ -1129,12 +1089,12 @@
                 },
                 breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
             });
+            renderReviews();
             new Swiper('#testimonials .swiper', {
                 slidesPerView: 1,
                 spaceBetween: 30,
                 loop: true,
                 watchSlidesProgress: true,
-                pagination: { el: '#testimonials .swiper-pagination', clickable: true },
                 navigation: {
                     nextEl: '#testimonials .swiper-button-next',
                     prevEl: '#testimonials .swiper-button-prev',
@@ -1142,17 +1102,55 @@
                 breakpoints: { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } }
             });
 
-            // Review Modal Click Handler
-            document.querySelector('#testimonials .swiper').addEventListener('click', (e) => {
-                const btn = e.target.closest('.read-more-btn');
-                if (btn) {
-                    const slide = btn.closest('.swiper-slide');
-                    const author = slide.querySelector('.author-name').innerText;
-                    const body = slide.querySelector('.review-body').innerText;
+            // Phone Mask Logic
+            const phoneInputs = document.querySelectorAll('.phone-mask-input');
+            phoneInputs.forEach(input => {
+                input.addEventListener('input', function(e) {
+                    let value = e.target.value.replace(/\D/g, '');
+                    if (!value) {
+                        e.target.value = '';
+                        return;
+                    }
                     
-                    openReviewModal({ author, body });
-                }
+                    if (value[0] === '7' || value[0] === '8') {
+                        value = value.substring(1);
+                    }
+                    
+                    let formatted = '+7 ';
+                    if (value.length > 0) {
+                        formatted += '(' + value.substring(0, 3);
+                    }
+                    if (value.length >= 4) {
+                        formatted += ') ' + value.substring(3, 6);
+                    }
+                    if (value.length >= 7) {
+                        formatted += '-' + value.substring(6, 8);
+                    }
+                    if (value.length >= 9) {
+                        formatted += '-' + value.substring(8, 10);
+                    }
+                    
+                    e.target.value = formatted;
+                });
+                
+                input.addEventListener('keydown', function(e) {
+                    if (e.key === 'Backspace' && e.target.value.length <= 4) {
+                        e.target.value = '';
+                    }
+                });
             });
+
+            // Scroll Animation Observer
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('show');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+            document.querySelectorAll('.scroll-anim').forEach(el => observer.observe(el));
         });
     </script>
 </body>
