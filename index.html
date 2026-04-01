@@ -42,7 +42,7 @@
     </script>
 
 </head>
-<body class="bg-dark text-white">
+<body class="bg-dark text-white overflow-x-hidden">
 
     <!-- Header -->
     <header class="fixed top-0 left-0 w-full z-50 glass border-b border-white/5 transition-all duration-300">
@@ -425,7 +425,7 @@
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[300px] bg-neon/5 blur-[120px] rounded-full pointer-events-none"></div>
 
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-16 mb-12 md:mb-20">
+            <div class="grid grid-cols-1 gap-14 md:grid-cols-3 md:gap-16 mb-20">
                 <!-- Column 1: О компании -->
                 <div class="flex flex-col items-center md:items-start text-center md:text-left">
                     <img src="./logo.png" alt="Vtec Team" class="h-16 md:h-20 w-auto mb-6 opacity-90 hover:opacity-100 transition-opacity">
@@ -461,7 +461,7 @@
                         </div>
                         <div class="flex flex-col items-center md:items-start gap-1">
                             <span class="text-xs uppercase tracking-widest text-gray-600 font-bold">Локация</span>
-                            <span class="text-xl font-black text-white whitespace-nowrap">г. Красногорск, Успенская ул., 1 стр. 1</span>
+                            <span class="text-base md:text-xl font-black text-white leading-tight">г. Красногорск, Успенская ул., 1 стр. 1</span>
                         </div>
                         <div class="flex flex-col items-center md:items-start gap-1">
                             <span class="text-xs uppercase tracking-widest text-gray-600 font-bold">График работы</span>
@@ -627,6 +627,7 @@
             const modal = document.getElementById(modalId);
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
             
             if (serviceName && document.getElementById('modal-title')) {
                 document.getElementById('modal-title').innerText = serviceName;
@@ -638,6 +639,7 @@
             const modal = document.getElementById(modalId);
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
+            document.documentElement.style.overflow = 'auto';
         }
 
         // Close modal on click outside
@@ -645,6 +647,7 @@
             if (event.target.classList.contains('modal')) {
                 event.target.classList.remove('active');
                 document.body.style.overflow = 'auto';
+                document.documentElement.style.overflow = 'auto';
             }
         }
 
@@ -917,6 +920,7 @@
             
             modal.classList.add('active');
             document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
             
             lucide.createIcons();
         }
@@ -925,6 +929,7 @@
             const modal = document.getElementById('review-modal');
             modal.classList.remove('active');
             document.body.style.overflow = 'auto';
+            document.documentElement.style.overflow = 'auto';
         }
 
         const portfolioData = [
