@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" class="scroll-smooth">
+<html lang="ru" class="scroll-smooth overflow-x-hidden">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -425,7 +425,7 @@
         <div class="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[300px] bg-neon/5 blur-[120px] rounded-full pointer-events-none"></div>
 
         <div class="container mx-auto px-4">
-            <div class="grid grid-cols-1 gap-14 md:grid-cols-3 md:gap-16 mb-20">
+            <div class="grid grid-cols-1 gap-20 md:grid-cols-3 md:gap-16 mb-20">
                 <!-- Column 1: О компании -->
                 <div class="flex flex-col items-center md:items-start text-center md:text-left">
                     <img src="./logo.png" alt="Vtec Team" class="h-16 md:h-20 w-auto mb-6 opacity-90 hover:opacity-100 transition-opacity">
@@ -443,7 +443,7 @@
                 <!-- Column 2: Услуги -->
                 <div class="flex flex-col items-center md:items-start">
                     <h4 class="text-white font-black uppercase tracking-widest mb-8 text-sm opacity-50">Услуги</h4>
-                    <ul class="space-y-4 text-center md:text-left">
+                    <ul class="space-y-2 text-center md:text-left">
                         <li><a href="#services" class="text-gray-400 hover:text-neon transition-colors font-medium">Чип-тюнинг</a></li>
                         <li><a href="#services" class="text-gray-400 hover:text-neon transition-colors font-medium">Удаление катализатора</a></li>
                         <li><a href="#services" class="text-gray-400 hover:text-neon transition-colors font-medium">Мультимедиа Tank / Haval</a></li>
@@ -498,7 +498,7 @@
                 <div>
                     <label class="block text-xs uppercase tracking-widest text-gray-500 mb-1">Услуга</label>
                     <div class="relative w-full bg-white/5 border border-white/10 rounded-xl focus-within:border-neon transition-all overflow-hidden" style="height: 50px;">
-                        <select id="service-field" class="w-full text-left pl-4 pr-10 bg-transparent outline-none text-white cursor-pointer relative z-10 appearance-none text-ellipsis overflow-hidden whitespace-nowrap" style="height: 100%; background: transparent !important;">
+                        <select id="service-field" class="w-full text-center md:text-left md:pl-4 pr-10 bg-transparent outline-none text-white cursor-pointer relative z-10 appearance-none text-ellipsis overflow-hidden whitespace-nowrap" style="height: 100%; background: transparent !important;">
                             <option class="bg-dark text-white" value="Чип-тюнинг (Прошивка двигателя и КПП)" selected>Чип-тюнинг (Прошивка двигателя и КПП)</option>
                             <option class="bg-dark text-white" value="Удаление катализатора">Удаление катализатора</option>
                             <option class="bg-dark text-white" value="Русификация Kia/Hyundai/Genesis">Русификация Kia/Hyundai/Genesis</option>
@@ -630,7 +630,6 @@
             document.documentElement.style.overflow = 'hidden';
             
             if (serviceName && document.getElementById('modal-title')) {
-                document.getElementById('modal-title').innerText = serviceName;
                 document.getElementById('service-field').value = serviceName;
             }
         }
@@ -997,6 +996,7 @@
             modal.classList.remove('hidden');
             modal.classList.add('flex');
             document.body.style.overflow = 'hidden';
+            document.documentElement.style.overflow = 'hidden';
             
             if (portfolioGallerySwiper) {
                 portfolioGallerySwiper.destroy(true, true);
@@ -1021,6 +1021,7 @@
             modal.classList.remove('flex');
             modal.classList.add('hidden');
             document.body.style.overflow = 'auto';
+            document.documentElement.style.overflow = 'auto';
         }
     </script>
     <!-- Swiper JS -->
