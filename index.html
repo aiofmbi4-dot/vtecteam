@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru" class="scroll-smooth overflow-x-hidden">
+<html lang="ru" class="scroll-smooth overflow-x-clip max-w-[100vw]">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,7 +42,7 @@
     </script>
 
 </head>
-<body class="bg-dark text-white overflow-x-hidden">
+<body class="bg-dark text-white overflow-x-clip max-w-[100vw]">
 
     <!-- Header -->
     <header class="fixed top-0 left-0 w-full z-50 glass border-b border-white/5 transition-all duration-300">
@@ -441,7 +441,7 @@
                 </div>
 
                 <!-- Column 2: Услуги -->
-                <div class="flex flex-col items-center md:items-start">
+                <div class="flex flex-col items-center md:items-start mt-10 md:mt-0">
                     <h4 class="text-white font-black uppercase tracking-widest mb-8 text-sm opacity-50">Услуги</h4>
                     <ul class="space-y-2 text-center md:text-left">
                         <li><a href="#services" class="text-gray-400 hover:text-neon transition-colors font-medium">Чип-тюнинг</a></li>
@@ -498,7 +498,7 @@
                 <div>
                     <label class="block text-xs uppercase tracking-widest text-gray-500 mb-1">Услуга</label>
                     <div class="relative w-full bg-white/5 border border-white/10 rounded-xl focus-within:border-neon transition-all overflow-hidden" style="height: 50px;">
-                        <select id="service-field" class="w-full text-center md:text-left md:pl-4 pr-10 bg-transparent outline-none text-white cursor-pointer relative z-10 appearance-none text-ellipsis overflow-hidden whitespace-nowrap" style="height: 100%; background: transparent !important;">
+                        <select id="service-field" class="w-full text-left pl-4 pr-10 bg-transparent outline-none text-white cursor-pointer relative z-10 appearance-none text-ellipsis overflow-hidden whitespace-nowrap" style="height: 100%; background: transparent !important;">
                             <option class="bg-dark text-white" value="Чип-тюнинг (Прошивка двигателя и КПП)" selected>Чип-тюнинг (Прошивка двигателя и КПП)</option>
                             <option class="bg-dark text-white" value="Удаление катализатора">Удаление катализатора</option>
                             <option class="bg-dark text-white" value="Русификация Kia/Hyundai/Genesis">Русификация Kia/Hyundai/Genesis</option>
